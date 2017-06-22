@@ -68,6 +68,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ejemplo_Booleanos.vb" />
+    <Compile Include="Ejemplo_IfNulo.vb" />
     <Compile Include="Ejemplo_If_String.vb" />
     <Compile Include="Ejemplo_Operador_If.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
