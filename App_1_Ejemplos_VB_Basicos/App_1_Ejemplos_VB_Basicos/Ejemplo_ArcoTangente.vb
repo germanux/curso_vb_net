@@ -1,4 +1,4 @@
-﻿Module EjemploArcoTangente
+﻿Module Ejemplo_ArcoTangente
     Sub Main()
         Dim x, y As Single
         Dim truncado, redondeado As Integer

@@ -72,6 +72,7 @@
     <Compile Include="Ejemplo_AreaCirculo.vb" />
     <Compile Include="Ejemplo_Booleanos.vb" />
     <Compile Include="Ejemplo_Calculadora.vb" />
+    <Compile Include="Ejemplo_Continue.vb" />
     <Compile Include="Ejemplo_EdadIf.vb" />
     <Compile Include="Ejemplo_EdadSelect.vb" />
     <Compile Include="Ejemplo_IfNulo.vb" />
@@ -79,6 +80,7 @@
     <Compile Include="Ejemplo_Operador_If.vb" />
     <Compile Include="Ejemplo_ReadLine.vb" />
     <Compile Include="Ejemplo_TablaMultiplicar.vb" />
+    <Compile Include="Ejemplo_Velocidades.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
