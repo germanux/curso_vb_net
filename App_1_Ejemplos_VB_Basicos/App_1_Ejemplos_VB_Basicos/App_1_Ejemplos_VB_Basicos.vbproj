@@ -68,7 +68,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EjemploArcoTangente.vb" />
+    <Compile Include="Ejemplo_Adivinar_Numero.vb" />
+    <Compile Include="Ejemplo_ArcoTangente.vb" />
     <Compile Include="Ejemplo_AreaCirculo.vb" />
     <Compile Include="Ejemplo_Booleanos.vb" />
     <Compile Include="Ejemplo_Calculadora.vb" />
