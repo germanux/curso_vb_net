@@ -48,4 +48,8 @@
             e.Cancel = True
         End If
     End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
+        MessageBox.Show("Radio del circulo")
+    End Sub
 End Class
