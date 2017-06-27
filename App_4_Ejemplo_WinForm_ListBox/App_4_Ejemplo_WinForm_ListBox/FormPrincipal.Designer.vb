@@ -26,7 +26,7 @@ Partial Class FormPrincipal
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtDiezCaracteres = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnMostrarLongitud = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblLongitudes = New System.Windows.Forms.Label()
         Me.lstListaDatos = New System.Windows.Forms.ListBox()
@@ -36,21 +36,31 @@ Partial Class FormPrincipal
         Me.btnEliminarDeLista = New System.Windows.Forms.Button()
         Me.btnAbrirForm = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
+        Me.btnCambiar = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AbrirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtMultilinea
         '
-        Me.txtMultilinea.Location = New System.Drawing.Point(18, 45)
+        Me.txtMultilinea.Location = New System.Drawing.Point(18, 59)
         Me.txtMultilinea.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.txtMultilinea.Multiline = True
         Me.txtMultilinea.Name = "txtMultilinea"
-        Me.txtMultilinea.Size = New System.Drawing.Size(314, 121)
+        Me.txtMultilinea.Size = New System.Drawing.Size(314, 26)
         Me.txtMultilinea.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(18, 20)
+        Me.Label1.Location = New System.Drawing.Point(18, 34)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(114, 20)
@@ -76,15 +86,15 @@ Partial Class FormPrincipal
         Me.txtDiezCaracteres.Size = New System.Drawing.Size(314, 26)
         Me.txtDiezCaracteres.TabIndex = 3
         '
-        'Button1
+        'btnMostrarLongitud
         '
-        Me.Button1.Location = New System.Drawing.Point(18, 243)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(176, 35)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Mostrar longitud"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnMostrarLongitud.Location = New System.Drawing.Point(18, 243)
+        Me.btnMostrarLongitud.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnMostrarLongitud.Name = "btnMostrarLongitud"
+        Me.btnMostrarLongitud.Size = New System.Drawing.Size(176, 35)
+        Me.btnMostrarLongitud.TabIndex = 4
+        Me.btnMostrarLongitud.Text = "Mostrar longitud"
+        Me.btnMostrarLongitud.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -98,9 +108,10 @@ Partial Class FormPrincipal
         'lblLongitudes
         '
         Me.lblLongitudes.AutoSize = True
+        Me.lblLongitudes.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLongitudes.Location = New System.Drawing.Point(22, 319)
         Me.lblLongitudes.Name = "lblLongitudes"
-        Me.lblLongitudes.Size = New System.Drawing.Size(88, 20)
+        Me.lblLongitudes.Size = New System.Drawing.Size(90, 18)
         Me.lblLongitudes.TabIndex = 6
         Me.lblLongitudes.Text = "Longitudes"
         '
@@ -108,16 +119,16 @@ Partial Class FormPrincipal
         '
         Me.lstListaDatos.FormattingEnabled = True
         Me.lstListaDatos.ItemHeight = 20
-        Me.lstListaDatos.Items.AddRange(New Object() {"Perro", "Gato", "Murciégalo", "Ratón"})
-        Me.lstListaDatos.Location = New System.Drawing.Point(417, 45)
+        Me.lstListaDatos.Items.AddRange(New Object() {"Perro", "Gato", "Murciégalo", "Ratón", "Hámster"})
+        Me.lstListaDatos.Location = New System.Drawing.Point(532, 79)
         Me.lstListaDatos.Name = "lstListaDatos"
-        Me.lstListaDatos.Size = New System.Drawing.Size(245, 184)
+        Me.lstListaDatos.Size = New System.Drawing.Size(130, 104)
         Me.lstListaDatos.TabIndex = 7
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(413, 20)
+        Me.Label4.Location = New System.Drawing.Point(416, 35)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(113, 20)
         Me.Label4.TabIndex = 8
@@ -125,7 +136,7 @@ Partial Class FormPrincipal
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(339, 45)
+        Me.btnAdd.Location = New System.Drawing.Point(339, 59)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(71, 31)
         Me.btnAdd.TabIndex = 9
@@ -153,9 +164,9 @@ Partial Class FormPrincipal
         '
         'btnAbrirForm
         '
-        Me.btnAbrirForm.Location = New System.Drawing.Point(417, 319)
+        Me.btnAbrirForm.Location = New System.Drawing.Point(339, 289)
         Me.btnAbrirForm.Name = "btnAbrirForm"
-        Me.btnAbrirForm.Size = New System.Drawing.Size(196, 37)
+        Me.btnAbrirForm.Size = New System.Drawing.Size(194, 37)
         Me.btnAbrirForm.TabIndex = 12
         Me.btnAbrirForm.Text = "Abrir Form Combo Listas"
         Me.btnAbrirForm.UseVisualStyleBackColor = True
@@ -169,11 +180,90 @@ Partial Class FormPrincipal
         Me.btnCerrar.Text = "X"
         Me.btnCerrar.UseVisualStyleBackColor = True
         '
+        'btnCambiar
+        '
+        Me.btnCambiar.Location = New System.Drawing.Point(214, 243)
+        Me.btnCambiar.Name = "btnCambiar"
+        Me.btnCambiar.Size = New System.Drawing.Size(118, 35)
+        Me.btnCambiar.TabIndex = 14
+        Me.btnCambiar.Text = "Cambiar"
+        Me.btnCambiar.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(344, 118)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(307, 20)
+        Me.Label5.TabIndex = 15
+        Me.Label5.Text = "Texto largo que no entra en label pequeño"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(242, 332)
+        Me.DateTimePicker1.MaxDate = New Date(2018, 12, 31, 0, 0, 0, 0)
+        Me.DateTimePicker1.MinDate = New Date(2016, 1, 1, 0, 0, 0, 0)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(345, 26)
+        Me.DateTimePicker1.TabIndex = 16
+        '
+        'MonthCalendar1
+        '
+        Me.MonthCalendar1.Location = New System.Drawing.Point(18, 364)
+        Me.MonthCalendar1.Name = "MonthCalendar1"
+        Me.MonthCalendar1.TabIndex = 17
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(686, 24)
+        Me.MenuStrip1.TabIndex = 18
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'ArchivoToolStripMenuItem
+        '
+        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.AbrirToolStripMenuItem})
+        Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.ArchivoToolStripMenuItem.Text = "Archivo"
+        '
+        'NuevoToolStripMenuItem
+        '
+        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NuevoToolStripMenuItem.Text = "Nuevo"
+        '
+        'AbrirToolStripMenuItem
+        '
+        Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AbrirToolStripMenuItem.Text = "Abrir"
+        '
+        'EditarToolStripMenuItem
+        '
+        Me.EditarToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BuscarToolStripMenuItem})
+        Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
+        Me.EditarToolStripMenuItem.Text = "Editar"
+        '
+        'BuscarToolStripMenuItem
+        '
+        Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
+        Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BuscarToolStripMenuItem.Text = "Buscar"
+        '
         'FormPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(686, 359)
+        Me.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.ClientSize = New System.Drawing.Size(686, 544)
+        Me.Controls.Add(Me.MonthCalendar1)
+        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.btnCambiar)
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.btnAbrirForm)
         Me.Controls.Add(Me.btnEliminarDeLista)
@@ -183,15 +273,19 @@ Partial Class FormPrincipal
         Me.Controls.Add(Me.lstListaDatos)
         Me.Controls.Add(Me.lblLongitudes)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnMostrarLongitud)
         Me.Controls.Add(Me.txtDiezCaracteres)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtMultilinea)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "FormPrincipal"
         Me.Text = "Form1"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -201,7 +295,7 @@ Partial Class FormPrincipal
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents txtDiezCaracteres As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnMostrarLongitud As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents lblLongitudes As Label
     Friend WithEvents lstListaDatos As ListBox
@@ -211,4 +305,14 @@ Partial Class FormPrincipal
     Friend WithEvents btnEliminarDeLista As Button
     Friend WithEvents btnAbrirForm As Button
     Friend WithEvents btnCerrar As Button
+    Friend WithEvents btnCambiar As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents MonthCalendar1 As MonthCalendar
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NuevoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AbrirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BuscarToolStripMenuItem As ToolStripMenuItem
 End Class
