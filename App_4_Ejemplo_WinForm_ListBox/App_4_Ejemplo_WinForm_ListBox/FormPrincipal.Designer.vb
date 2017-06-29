@@ -46,6 +46,15 @@ Partial Class FormPrincipal
         Me.AbrirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.lblDiaSemana = New System.Windows.Forms.Label()
+        Me.lblComparacion = New System.Windows.Forms.Label()
+        Me.txtTexto_A = New System.Windows.Forms.TextBox()
+        Me.txtTexto_B = New System.Windows.Forms.TextBox()
+        Me.btnComparar = New System.Windows.Forms.Button()
+        Me.lblCompTxt = New System.Windows.Forms.Label()
+        Me.btnProvocador = New System.Windows.Forms.Button()
+        Me.lblPulsando = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -173,7 +182,7 @@ Partial Class FormPrincipal
         '
         'btnCerrar
         '
-        Me.btnCerrar.Location = New System.Drawing.Point(621, 319)
+        Me.btnCerrar.Location = New System.Drawing.Point(621, 300)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(41, 37)
         Me.btnCerrar.TabIndex = 13
@@ -200,11 +209,11 @@ Partial Class FormPrincipal
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(242, 332)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(242, 364)
         Me.DateTimePicker1.MaxDate = New Date(2018, 12, 31, 0, 0, 0, 0)
         Me.DateTimePicker1.MinDate = New Date(2016, 1, 1, 0, 0, 0, 0)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(345, 26)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(216, 26)
         Me.DateTimePicker1.TabIndex = 16
         '
         'MonthCalendar1
@@ -218,7 +227,7 @@ Partial Class FormPrincipal
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.EditarToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(686, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(831, 24)
         Me.MenuStrip1.TabIndex = 18
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -232,13 +241,13 @@ Partial Class FormPrincipal
         'NuevoToolStripMenuItem
         '
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
         'AbrirToolStripMenuItem
         '
         Me.AbrirToolStripMenuItem.Name = "AbrirToolStripMenuItem"
-        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AbrirToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
         Me.AbrirToolStripMenuItem.Text = "Abrir"
         '
         'EditarToolStripMenuItem
@@ -251,15 +260,101 @@ Partial Class FormPrincipal
         'BuscarToolStripMenuItem
         '
         Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
-        Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
         Me.BuscarToolStripMenuItem.Text = "Buscar"
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Location = New System.Drawing.Point(242, 500)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(216, 26)
+        Me.DateTimePicker2.TabIndex = 19
+        '
+        'lblDiaSemana
+        '
+        Me.lblDiaSemana.AutoSize = True
+        Me.lblDiaSemana.Location = New System.Drawing.Point(238, 402)
+        Me.lblDiaSemana.Name = "lblDiaSemana"
+        Me.lblDiaSemana.Size = New System.Drawing.Size(57, 20)
+        Me.lblDiaSemana.TabIndex = 20
+        Me.lblDiaSemana.Text = "Label6"
+        '
+        'lblComparacion
+        '
+        Me.lblComparacion.AutoSize = True
+        Me.lblComparacion.Location = New System.Drawing.Point(242, 452)
+        Me.lblComparacion.Name = "lblComparacion"
+        Me.lblComparacion.Size = New System.Drawing.Size(57, 20)
+        Me.lblComparacion.TabIndex = 21
+        Me.lblComparacion.Text = "Label6"
+        '
+        'txtTexto_A
+        '
+        Me.txtTexto_A.Location = New System.Drawing.Point(496, 366)
+        Me.txtTexto_A.Name = "txtTexto_A"
+        Me.txtTexto_A.Size = New System.Drawing.Size(100, 26)
+        Me.txtTexto_A.TabIndex = 22
+        '
+        'txtTexto_B
+        '
+        Me.txtTexto_B.Location = New System.Drawing.Point(496, 402)
+        Me.txtTexto_B.Name = "txtTexto_B"
+        Me.txtTexto_B.Size = New System.Drawing.Size(100, 26)
+        Me.txtTexto_B.TabIndex = 23
+        '
+        'btnComparar
+        '
+        Me.btnComparar.Location = New System.Drawing.Point(496, 435)
+        Me.btnComparar.Name = "btnComparar"
+        Me.btnComparar.Size = New System.Drawing.Size(100, 37)
+        Me.btnComparar.TabIndex = 24
+        Me.btnComparar.Text = "Comparar"
+        Me.btnComparar.UseVisualStyleBackColor = True
+        '
+        'lblCompTxt
+        '
+        Me.lblCompTxt.AutoSize = True
+        Me.lblCompTxt.Location = New System.Drawing.Point(496, 479)
+        Me.lblCompTxt.Name = "lblCompTxt"
+        Me.lblCompTxt.Size = New System.Drawing.Size(57, 20)
+        Me.lblCompTxt.TabIndex = 25
+        Me.lblCompTxt.Text = "Label6"
+        '
+        'btnProvocador
+        '
+        Me.btnProvocador.Location = New System.Drawing.Point(496, 504)
+        Me.btnProvocador.Name = "btnProvocador"
+        Me.btnProvocador.Size = New System.Drawing.Size(185, 28)
+        Me.btnProvocador.TabIndex = 26
+        Me.btnProvocador.Text = "Provocar eventos"
+        Me.btnProvocador.UseVisualStyleBackColor = True
+        '
+        'lblPulsando
+        '
+        Me.lblPulsando.AutoSize = True
+        Me.lblPulsando.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.lblPulsando.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPulsando.Location = New System.Drawing.Point(602, 402)
+        Me.lblPulsando.Name = "lblPulsando"
+        Me.lblPulsando.Size = New System.Drawing.Size(159, 29)
+        Me.lblPulsando.TabIndex = 27
+        Me.lblPulsando.Text = "Label6Label6"
         '
         'FormPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.ClientSize = New System.Drawing.Size(686, 544)
+        Me.ClientSize = New System.Drawing.Size(831, 544)
+        Me.Controls.Add(Me.lblPulsando)
+        Me.Controls.Add(Me.btnProvocador)
+        Me.Controls.Add(Me.lblCompTxt)
+        Me.Controls.Add(Me.btnComparar)
+        Me.Controls.Add(Me.txtTexto_B)
+        Me.Controls.Add(Me.txtTexto_A)
+        Me.Controls.Add(Me.lblComparacion)
+        Me.Controls.Add(Me.lblDiaSemana)
+        Me.Controls.Add(Me.DateTimePicker2)
         Me.Controls.Add(Me.MonthCalendar1)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Label5)
@@ -315,4 +410,13 @@ Partial Class FormPrincipal
     Friend WithEvents AbrirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BuscarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents lblDiaSemana As Label
+    Friend WithEvents lblComparacion As Label
+    Friend WithEvents txtTexto_A As TextBox
+    Friend WithEvents txtTexto_B As TextBox
+    Friend WithEvents btnComparar As Button
+    Friend WithEvents lblCompTxt As Label
+    Friend WithEvents btnProvocador As Button
+    Friend WithEvents lblPulsando As Label
 End Class

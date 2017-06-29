@@ -78,6 +78,12 @@
     <Compile Include="FormComboListas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormEventosRaton.Designer.vb">
+      <DependentUpon>FormEventosRaton.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEventosRaton.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormComboListas.resx">
       <DependentUpon>FormComboListas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEventosRaton.resx">
+      <DependentUpon>FormEventosRaton.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.vb</DependentUpon>

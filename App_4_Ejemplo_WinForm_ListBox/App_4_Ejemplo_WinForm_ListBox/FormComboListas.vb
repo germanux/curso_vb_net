@@ -4,4 +4,8 @@
             Label1.Text += My.Application.OpenForms.Item(i).Text & vbCrLf
         Next
     End Sub
+
+    Private Sub FormComboListas_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
