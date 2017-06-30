@@ -5,9 +5,9 @@ Public Class MDI_Principal
     Private frmAlta As Form_Alta
     Private frmBaja As Form_baja
 
-    Private Sub Abrir_Formulario(formulario As Form)
+    Private Sub Abrir_Formulario(Of TForm As {Form, New})(ByRef formulario As TForm)
         If formulario Is Nothing OrElse formulario.IsDisposed() Then
-            formulario = New Form_Alta()
+            formulario = New TForm()
             formulario.MdiParent = Me
             formulario.Show()
         Else
@@ -16,10 +16,10 @@ Public Class MDI_Principal
         End If
     End Sub
     Private Sub AltaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaToolStripMenuItem.Click
-        Abrir_Formulario(frmAlta)
+        Abrir_Formulario(Of Form_Alta)(frmAlta)
     End Sub
     Private Sub BajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BajaToolStripMenuItem.Click
-        Abrir_Formulario(frmBaja)
+        Abrir_Formulario(Of Form_baja)(frmBaja)
     End Sub
 
 
