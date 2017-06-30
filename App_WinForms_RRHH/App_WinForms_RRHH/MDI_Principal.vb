@@ -1,4 +1,5 @@
 ﻿Imports System.Windows.Forms
+Imports App_WinForms_RRHH.Modelo
 
 Public Class MDI_Principal
 
@@ -100,4 +101,7 @@ Public Class MDI_Principal
 
     Private m_ChildFormNumber As Integer
 
+    Private Sub MDI_Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        EmpleadosCRUD.Restaurar()
+    End Sub
 End Class
