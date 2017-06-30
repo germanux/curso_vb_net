@@ -2,6 +2,28 @@
 
 Public Class MDI_Principal
 
+    Private frmAlta As Form_Alta
+    Private frmBaja As Form_baja
+
+    Private Sub Abrir_Formulario(formulario As Form)
+        If formulario Is Nothing OrElse formulario.IsDisposed() Then
+            formulario = New Form_Alta()
+            formulario.MdiParent = Me
+            formulario.Show()
+        Else
+            formulario.Show()
+            ActivateMdiChild(formulario)
+        End If
+    End Sub
+    Private Sub AltaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaToolStripMenuItem.Click
+        Abrir_Formulario(frmAlta)
+    End Sub
+    Private Sub BajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BajaToolStripMenuItem.Click
+        Abrir_Formulario(frmBaja)
+    End Sub
+
+
+    ' *** CODIGO AUTOGENERADO POR VISUAL STUDIO
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripMenuItem.Click, NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
         ' Cree una nueva instancia del formulario secundario.
         Dim ChildForm As New System.Windows.Forms.Form
@@ -13,7 +35,6 @@ Public Class MDI_Principal
 
         ChildForm.Show()
     End Sub
-
     Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click, OpenToolStripButton.Click
         Dim OpenFileDialog As New OpenFileDialog
         OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -23,7 +44,6 @@ Public Class MDI_Principal
             ' TODO: agregue código aquí para abrir el archivo.
         End If
     End Sub
-
     Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SaveAsToolStripMenuItem.Click
         Dim SaveFileDialog As New SaveFileDialog
         SaveFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -34,20 +54,15 @@ Public Class MDI_Principal
             ' TODO: agregue código aquí para guardar el contenido actual del formulario en un archivo.
         End If
     End Sub
-
-
     Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
-
     Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CutToolStripMenuItem.Click
         ' Utilice My.Computer.Clipboard para insertar el texto o las imágenes seleccionadas en el Portapapeles
     End Sub
-
     Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CopyToolStripMenuItem.Click
         ' Utilice My.Computer.Clipboard para insertar el texto o las imágenes seleccionadas en el Portapapeles
     End Sub
-
     Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PasteToolStripMenuItem.Click
         'Utilice My.Computer.Clipboard.GetText() o My.Computer.Clipboard.GetData para recuperar la información del Portapapeles.
     End Sub
@@ -85,9 +100,4 @@ Public Class MDI_Principal
 
     Private m_ChildFormNumber As Integer
 
-    Private Sub AltaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaToolStripMenuItem.Click
-        Dim frmAlta As Form_Alta = New Form_Alta()
-        frmAlta.MdiParent = Me
-        frmAlta.Show()
-    End Sub
 End Class

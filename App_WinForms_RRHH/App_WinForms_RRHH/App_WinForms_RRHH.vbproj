@@ -78,6 +78,12 @@
     <Compile Include="Form_Alta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form_Baja.Designer.vb">
+      <DependentUpon>Form_Baja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Baja.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MDI_Principal.Designer.vb">
       <DependentUpon>MDI_Principal.vb</DependentUpon>
     </Compile>
@@ -103,6 +109,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Form_Alta.resx">
       <DependentUpon>Form_Alta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_baja.resx">
+      <DependentUpon>Form_Baja.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI_Principal.resx">
       <DependentUpon>MDI_Principal.vb</DependentUpon>

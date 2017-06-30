@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MDI_Principal
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -21,7 +21,7 @@ Partial Class MDI_Principal
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MDI_Principal))
@@ -50,6 +50,9 @@ Partial Class MDI_Principal
         Me.ViewMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AltaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,9 +80,10 @@ Partial Class MDI_Principal
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AltaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModificaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GuardarAutomaticamenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -274,6 +278,31 @@ Partial Class MDI_Principal
         Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
         Me.StatusBarToolStripMenuItem.Text = "&Barra de estado"
         '
+        'EmpleadosToolStripMenuItem
+        '
+        Me.EmpleadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaToolStripMenuItem, Me.BajaToolStripMenuItem, Me.ModificaciónToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.ListarToolStripMenuItem, Me.GuardarAutomaticamenteToolStripMenuItem})
+        Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
+        Me.EmpleadosToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+            Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
+        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
+        Me.EmpleadosToolStripMenuItem.Text = "Em&pleados"
+        '
+        'AltaToolStripMenuItem
+        '
+        Me.AltaToolStripMenuItem.Name = "AltaToolStripMenuItem"
+        Me.AltaToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+            Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
+        Me.AltaToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.AltaToolStripMenuItem.Text = "A&lta"
+        '
+        'BajaToolStripMenuItem
+        '
+        Me.BajaToolStripMenuItem.Name = "BajaToolStripMenuItem"
+        Me.BajaToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+            Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
+        Me.BajaToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.BajaToolStripMenuItem.Text = "&Baja"
+        '
         'ToolsMenu
         '
         Me.ToolsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
@@ -284,7 +313,7 @@ Partial Class MDI_Principal
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.OptionsToolStripMenuItem.Text = "&Opciones"
         '
         'WindowsMenu
@@ -459,24 +488,35 @@ Partial Class MDI_Principal
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(42, 17)
         Me.ToolStripStatusLabel.Text = "Estado"
         '
-        'EmpleadosToolStripMenuItem
+        'ModificaciónToolStripMenuItem
         '
-        Me.EmpleadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaToolStripMenuItem, Me.BajaToolStripMenuItem})
-        Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
-        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
-        Me.EmpleadosToolStripMenuItem.Text = "Empleados"
+        Me.ModificaciónToolStripMenuItem.Enabled = False
+        Me.ModificaciónToolStripMenuItem.Name = "ModificaciónToolStripMenuItem"
+        Me.ModificaciónToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ModificaciónToolStripMenuItem.Text = "&Modificación"
         '
-        'AltaToolStripMenuItem
+        'BuscarToolStripMenuItem
         '
-        Me.AltaToolStripMenuItem.Name = "AltaToolStripMenuItem"
-        Me.AltaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.AltaToolStripMenuItem.Text = "Alta"
+        Me.BuscarToolStripMenuItem.Enabled = False
+        Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
+        Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BuscarToolStripMenuItem.Text = "Bu&scar"
         '
-        'BajaToolStripMenuItem
+        'ListarToolStripMenuItem
         '
-        Me.BajaToolStripMenuItem.Name = "BajaToolStripMenuItem"
-        Me.BajaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.BajaToolStripMenuItem.Text = "Baja"
+        Me.ListarToolStripMenuItem.Enabled = False
+        Me.ListarToolStripMenuItem.Name = "ListarToolStripMenuItem"
+        Me.ListarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ListarToolStripMenuItem.Text = "&Listar"
+        '
+        'GuardarAutomaticamenteToolStripMenuItem
+        '
+        Me.GuardarAutomaticamenteToolStripMenuItem.Checked = True
+        Me.GuardarAutomaticamenteToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.GuardarAutomaticamenteToolStripMenuItem.Enabled = False
+        Me.GuardarAutomaticamenteToolStripMenuItem.Name = "GuardarAutomaticamenteToolStripMenuItem"
+        Me.GuardarAutomaticamenteToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.GuardarAutomaticamenteToolStripMenuItem.Text = "&Guardar automaticamente"
         '
         'MDI_Principal
         '
@@ -555,4 +595,8 @@ Partial Class MDI_Principal
     Friend WithEvents EmpleadosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AltaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BajaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModificaciónToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BuscarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ListarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GuardarAutomaticamenteToolStripMenuItem As ToolStripMenuItem
 End Class
