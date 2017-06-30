@@ -39,7 +39,7 @@
     Private Sub PictureBox1_OnMouseLeave(sender As Object, e As EventArgs) _
         Handles PictureBox1.MouseLeave, PictureBox1.MouseEnter
 
-        MessageBox.Show("Entrando o saliendo")
+        'MessageBox.Show("Entrando o saliendo")
     End Sub
 
 

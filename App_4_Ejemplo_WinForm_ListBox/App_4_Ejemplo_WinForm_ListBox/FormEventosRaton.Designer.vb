@@ -54,7 +54,7 @@ Partial Class FormEventosRaton
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Cross
         Me.PictureBox1.ImageLocation = "https://s-media-cache-ak0.pinimg.com/736x/96/94/39/96943921cecd1fbbca817cbbdaf645" &
     "f5.jpg"
-        Me.PictureBox1.Location = New System.Drawing.Point(43, 66)
+        Me.PictureBox1.Location = New System.Drawing.Point(28, 65)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(492, 359)
         Me.PictureBox1.TabIndex = 2
