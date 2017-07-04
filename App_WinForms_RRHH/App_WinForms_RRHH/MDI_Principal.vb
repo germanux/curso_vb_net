@@ -5,6 +5,7 @@ Public Class MDI_Principal
 
     Private frmAlta As Form_Alta
     Private frmBaja As Form_baja
+    Private frmLista As Form_Lista
 
     Private Sub Abrir_Formulario(Of TForm As {Form, New})(ByRef formulario As TForm)
         If formulario Is Nothing OrElse formulario.IsDisposed() Then
@@ -23,7 +24,9 @@ Public Class MDI_Principal
     Private Sub BajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BajaToolStripMenuItem.Click
         Abrir_Formulario(Of Form_baja)(frmBaja)
     End Sub
-
+    Private Sub ListarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListarToolStripMenuItem.Click
+        Abrir_Formulario(Of Form_Lista)(frmLista)
+    End Sub
     Private Sub tolAlta_Click(sender As Object, e As EventArgs) Handles tolAlta.Click
         AltaToolStripMenuItem_Click(sender, e)
     End Sub
@@ -135,4 +138,5 @@ Public Class MDI_Principal
 
         EmpleadosCRUD.Grabar()
     End Sub
+
 End Class
