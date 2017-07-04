@@ -1,12 +1,14 @@
 ﻿Namespace Modelo
     Module EmpleadosFichero
 
+        Public nombreFichero As String
+
         ' Graba un arrray de empleados en un fichero CSV y devuelve true si se ha grabado
         ' o devuelve false si ha habido un fallo de escritura
-        Function GrabarFichero(ByVal arrayEmpleados() As Empleado, ByVal nombreFichero As String) As Boolean
+        Function GrabarFichero(ByVal arrayEmpleados() As Empleado) As Boolean
 
             Dim fichero As System.IO.StreamWriter
-            fichero = My.Computer.FileSystem.OpenTextFileWriter("C:\Users\sinensia100\" & nombreFichero, False)
+            fichero = My.Computer.FileSystem.OpenTextFileWriter(nombreFichero, False)
 
             For i = 0 To arrayEmpleados.Length - 1 Step 1
                 fichero.WriteLine(arrayEmpleados(i).nombre & "," &
@@ -16,7 +18,7 @@
             Return True
         End Function
 
-        Function LeerFichero(ByRef arrayEmpleados() As Empleado, ByVal nombreFichero As String) As Boolean
+        Function LeerFichero(ByRef arrayEmpleados() As Empleado) As Boolean
             ' Declarar variables:
             '   arrayRegistros de tipo cadena
             Dim arrayRegistros() As String
@@ -25,9 +27,9 @@
             Dim textoFichero As String
 
             Try
-                If My.Computer.FileSystem.FileExists(RUTA_EMPLEADOS & nombreFichero) Then
+                If My.Computer.FileSystem.FileExists(nombreFichero) Then
                     '   leer todo el fichero y asignar a textoFichero
-                    textoFichero = My.Computer.FileSystem.ReadAllText(RUTA_EMPLEADOS & nombreFichero)
+                    textoFichero = My.Computer.FileSystem.ReadAllText(nombreFichero)
 
                     '   asignar a arrayRegistros el textoFichero separado con Split
                     arrayRegistros = textoFichero.Split(vbCrLf)
@@ -46,6 +48,7 @@
                         ' Fin bucle
                     Next
                 Else
+                    MessageBox.Show("No se encuentra el fichero.")
                     Console.WriteLine("No se encuentra el fichero. Ponga un fichero en  C:\Users\sinensia100\" & nombreFichero)
                 End If
             Catch ex As IndexOutOfRangeException

@@ -5,6 +5,10 @@ Public Class Form_Alta
 
         ' TODO: Impedir duplicados
         ' TODO: Hacer las validaciones
+        ' TOPO: Formulario por encima TopMost
+        ' TODO: Métodos         CenterToScreen()        y        CenterToParent()
+        ' TODO: Propiedades       ControlBox aximizeBox MinimizeBox, HelpButton, Propiedad         FormBorderStyle        .
+
         If txtNombre.Text = "" Then
             MessageBox.Show("Introduzca un nombre")
             Return
@@ -50,4 +54,13 @@ Public Class Form_Alta
         numRetribucion.Value = 0
     End Sub
 
+    Public Sub AlActivarseFormulario(sender As Object, e As EventArgs) _
+        Handles Me.Activated
+        Me.MdiParent.Text = "Alta empleado"
+    End Sub
+    Public Sub AlDesactivarseFormulario(sender As Object, e As EventArgs) _
+        Handles Me.Deactivate
+
+        Me.MdiParent.Text = "Aplicación empleados"
+    End Sub
 End Class

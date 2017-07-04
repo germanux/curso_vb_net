@@ -8,14 +8,16 @@
 
         Public Sub Restaurar()
             listaEmpleados = New Empleado() {}
-            EmpleadosFichero.LeerFichero(listaEmpleados, "personal.csv")
+            EmpleadosFichero.LeerFichero(listaEmpleados)
+        End Sub
+        Public Sub Grabar()
+            EmpleadosFichero.GrabarFichero(listaEmpleados)
         End Sub
         Sub Crear(nuevoEmpleado As Empleado)
             ' Redimensionar el array
             ReDim Preserve listaEmpleados(listaEmpleados.Length)
             ' Asignamos nuevo empleado
             listaEmpleados(listaEmpleados.Length - 1) = nuevoEmpleado
-            EmpleadosFichero.GrabarFichero(listaEmpleados, "personal.csv")
         End Sub
         Function Cantidad() As Integer
             Return listaEmpleados.Length
@@ -45,7 +47,6 @@
         End Function
         Sub Actualizar(indice As Integer, empleado As Empleado)
             listaEmpleados(indice) = empleado
-            EmpleadosFichero.GrabarFichero(listaEmpleados, "personal.csv")
         End Sub
         ' Para eliminar
         ' 1 2 3 4 5 6 7 8 9 10
@@ -54,7 +55,6 @@
         Sub Eliminar(indice As Integer)
             Array.Copy(listaEmpleados, indice + 1, listaEmpleados, indice, listaEmpleados.Length - 1 - indice)
             Array.Resize(listaEmpleados, listaEmpleados.Length - 1)
-            EmpleadosFichero.GrabarFichero(listaEmpleados, "personal.csv")
         End Sub
     End Module
 End Namespace

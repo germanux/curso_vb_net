@@ -15,6 +15,7 @@ Public Class MDI_Principal
             formulario.Show()
             ActivateMdiChild(formulario)
         End If
+        formulario.Activate()
     End Sub
     Private Sub AltaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaToolStripMenuItem.Click
         Abrir_Formulario(Of Form_Alta)(frmAlta)
@@ -23,7 +24,9 @@ Public Class MDI_Principal
         Abrir_Formulario(Of Form_baja)(frmBaja)
     End Sub
 
-
+    Private Sub tolAlta_Click(sender As Object, e As EventArgs) Handles tolAlta.Click
+        AltaToolStripMenuItem_Click(sender, e)
+    End Sub
     ' *** CODIGO AUTOGENERADO POR VISUAL STUDIO
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripMenuItem.Click, NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
         ' Cree una nueva instancia del formulario secundario.
@@ -39,20 +42,26 @@ Public Class MDI_Principal
     Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click, OpenToolStripButton.Click
         Dim OpenFileDialog As New OpenFileDialog
         OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
-        OpenFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*"
+        OpenFileDialog.Filter = "Archivos de texto (*.csv)|*.csv|Todos los archivos (*.*)|*.*"
+        OpenFileDialog.CheckFileExists = True
+
         If (OpenFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
             Dim FileName As String = OpenFileDialog.FileName
-            ' TODO: agregue código aquí para abrir el archivo.
+            EmpleadosFichero.nombreFichero = FileName
+            EmpleadosCRUD.Restaurar()
+            EmpleadosToolStripMenuItem.Enabled = True
         End If
     End Sub
     Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SaveAsToolStripMenuItem.Click
         Dim SaveFileDialog As New SaveFileDialog
-        SaveFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
-        SaveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*"
+        SaveFileDialog.InitialDirectory = EmpleadosFichero.nombreFichero
+        SaveFileDialog.Filter = "Archivos de texto (*.csv)|*.csv|Todos los archivos (*.*)|*.*"
 
         If (SaveFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
             Dim FileName As String = SaveFileDialog.FileName
-            ' TODO: agregue código aquí para guardar el contenido actual del formulario en un archivo.
+
+            EmpleadosFichero.nombreFichero = FileName
+            EmpleadosCRUD.Grabar()
         End If
     End Sub
     Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
@@ -102,6 +111,28 @@ Public Class MDI_Principal
     Private m_ChildFormNumber As Integer
 
     Private Sub MDI_Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        EmpleadosCRUD.Restaurar()
+
+        Me.ContextMenuStrip = ContextMenuStrip1
+        EmpleadosToolStripMenuItem.Enabled = False
+    End Sub
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Shell("explorer https://www.bbva.es")
+    End Sub
+
+    Private Sub CambiarFuenteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CambiarFuenteToolStripMenuItem.Click
+
+        Dim dialogoFuente As New FontDialog
+        If dialogoFuente.ShowDialog(Me) = DialogResult.OK Then
+            Me.Font = dialogoFuente.Font
+            For Each formulario In Me.MdiChildren
+                formulario.Font = dialogoFuente.Font
+            Next
+        End If
+    End Sub
+
+    Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
+
+        EmpleadosCRUD.Grabar()
     End Sub
 End Class

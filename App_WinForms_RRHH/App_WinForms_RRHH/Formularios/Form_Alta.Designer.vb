@@ -39,41 +39,37 @@ Partial Class Form_Alta
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(26, 33)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 20)
+        Me.Label1.Size = New System.Drawing.Size(100, 30)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nombre:"
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(26, 71)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(77, 20)
+        Me.Label2.Size = New System.Drawing.Size(100, 30)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Apellidos:"
         '
         'Label3
         '
-        Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(26, 110)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(67, 20)
+        Me.Label3.Size = New System.Drawing.Size(100, 30)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Genero:"
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(26, 154)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(82, 20)
+        Me.Label4.Size = New System.Drawing.Size(100, 30)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Categoria:"
         '
@@ -141,13 +137,13 @@ Partial Class Form_Alta
         '
         'Label5
         '
-        Me.Label5.AutoSize = True
+        Me.Label5.AutoEllipsis = True
         Me.Label5.Location = New System.Drawing.Point(26, 194)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(94, 20)
+        Me.Label5.Size = New System.Drawing.Size(100, 26)
         Me.Label5.TabIndex = 11
-        Me.Label5.Text = "Retribución:"
+        Me.Label5.Text = "Retribución fija:"
         '
         'Form_Alta
         '
