@@ -28,11 +28,6 @@
         'Function Leer(indice As Integer) As Empleado
         '    Return listaEmpleados(indice)
         'End Function
-        'Function BuscarPorCampoEmpleado(valor As String) As Integer
-        '    Dim indiceEmpleado As Integer
-        '    indiceEmpleado = BuscarPorCampoEmpleado(valor, TipoCampoEmpleado.Nombre)
-        '    Return indiceEmpleado
-        'End Function
         Function BuscarEmpleados(nombre As String, apellido As String) As List(Of Empleado)
             nombre = nombre.ToUpper()
             apellido = apellido.ToUpper()

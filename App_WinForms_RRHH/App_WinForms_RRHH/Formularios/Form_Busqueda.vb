@@ -1,6 +1,6 @@
 ﻿Imports App_WinForms_RRHH.Modelo
 
-Public Class Form_Lista
+Public Class Form_Busqueda
     Public listaEmpleados As List(Of Empleado)
     Private Sub cmbNombre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbNombre.SelectedIndexChanged
         BuscarEmpleado()
