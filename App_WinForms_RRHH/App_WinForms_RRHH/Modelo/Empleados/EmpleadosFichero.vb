@@ -34,7 +34,7 @@
                     textoFichero = My.Computer.FileSystem.ReadAllText(nombreFichero)
 
                     '   asignar a arrayRegistros el textoFichero separado con Split
-                    arrayRegistros = textoFichero.Split(vbCrLf)
+                    arrayRegistros = textoFichero.Split(vbCr.ToCharArray()(0))
                     ' Bucle Para numeroRegistro desde 0 hasta ultimo elemento de arrayRegistros
                     For i = 0 To arrayRegistros.Length - 1
                         arrayRegistros(i) = arrayRegistros(i).Replace(vbLf, "")

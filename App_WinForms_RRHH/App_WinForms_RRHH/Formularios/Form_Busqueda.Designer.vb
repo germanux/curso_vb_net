@@ -29,6 +29,10 @@ Partial Class Form_Busqueda
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbApellidos = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.btnBaja = New System.Windows.Forms.Button()
+        Me.btnAlta = New System.Windows.Forms.Button()
+        Me.btnModificacion = New System.Windows.Forms.Button()
+        Me.btnCerrar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lstListaEmpleados
@@ -38,6 +42,7 @@ Partial Class Form_Busqueda
         Me.lstListaEmpleados.Location = New System.Drawing.Point(43, 204)
         Me.lstListaEmpleados.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.lstListaEmpleados.Name = "lstListaEmpleados"
+        Me.lstListaEmpleados.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         Me.lstListaEmpleados.Size = New System.Drawing.Size(357, 184)
         Me.lstListaEmpleados.TabIndex = 0
         '
@@ -96,11 +101,53 @@ Partial Class Form_Busqueda
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Empleados encontrados:"
         '
-        'Form_Lista
+        'btnBaja
+        '
+        Me.btnBaja.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBaja.ForeColor = System.Drawing.Color.Red
+        Me.btnBaja.Location = New System.Drawing.Point(259, 396)
+        Me.btnBaja.Name = "btnBaja"
+        Me.btnBaja.Size = New System.Drawing.Size(70, 39)
+        Me.btnBaja.TabIndex = 7
+        Me.btnBaja.Text = "Baja"
+        Me.btnBaja.UseVisualStyleBackColor = True
+        '
+        'btnAlta
+        '
+        Me.btnAlta.Location = New System.Drawing.Point(43, 396)
+        Me.btnAlta.Name = "btnAlta"
+        Me.btnAlta.Size = New System.Drawing.Size(93, 39)
+        Me.btnAlta.TabIndex = 8
+        Me.btnAlta.Text = "Alta..."
+        Me.btnAlta.UseVisualStyleBackColor = True
+        '
+        'btnModificacion
+        '
+        Me.btnModificacion.Location = New System.Drawing.Point(142, 397)
+        Me.btnModificacion.Name = "btnModificacion"
+        Me.btnModificacion.Size = New System.Drawing.Size(100, 37)
+        Me.btnModificacion.TabIndex = 9
+        Me.btnModificacion.Text = "Modificar..."
+        Me.btnModificacion.UseVisualStyleBackColor = True
+        '
+        'btnCerrar
+        '
+        Me.btnCerrar.Location = New System.Drawing.Point(335, 397)
+        Me.btnCerrar.Name = "btnCerrar"
+        Me.btnCerrar.Size = New System.Drawing.Size(65, 38)
+        Me.btnCerrar.TabIndex = 10
+        Me.btnCerrar.Text = "Cerrar"
+        Me.btnCerrar.UseVisualStyleBackColor = True
+        '
+        'Form_Busqueda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(426, 406)
+        Me.ClientSize = New System.Drawing.Size(426, 445)
+        Me.Controls.Add(Me.btnCerrar)
+        Me.Controls.Add(Me.btnModificacion)
+        Me.Controls.Add(Me.btnAlta)
+        Me.Controls.Add(Me.btnBaja)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cmbApellidos)
         Me.Controls.Add(Me.Label3)
@@ -110,7 +157,7 @@ Partial Class Form_Busqueda
         Me.Controls.Add(Me.lstListaEmpleados)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.Name = "Form_Lista"
+        Me.Name = "Form_Busqueda"
         Me.Text = "Listar empleados"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -124,4 +171,8 @@ Partial Class Form_Busqueda
     Friend WithEvents Label3 As Label
     Friend WithEvents cmbApellidos As ComboBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents btnBaja As Button
+    Friend WithEvents btnAlta As Button
+    Friend WithEvents btnModificacion As Button
+    Friend WithEvents btnCerrar As Button
 End Class
