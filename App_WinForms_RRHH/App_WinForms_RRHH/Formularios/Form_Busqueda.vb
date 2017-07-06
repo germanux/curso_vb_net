@@ -38,6 +38,15 @@ Public Class Form_Busqueda
         EmpleadosCRUD.Eliminar(listaElminar)
     End Sub
     Private Sub btnModificacion_Click(sender As Object, e As EventArgs) Handles btnModificacion.Click
-
+        Dim listaModificar As New List(Of Empleado)
+        For i = 0 To lstListaEmpleados.SelectedIndices.Count - 1
+            Dim indexEmpleado = lstListaEmpleados.SelectedIndices(i)
+            Dim frmModificar = New Form_Modificacion()
+            frmModificar.MdiParent = Me.MdiParent
+            frmModificar.Empleado = listaEmpleados(indexEmpleado)
+            frmModificar.Show()
+            'listaEmpleados(indexEmpleado) = frmModificar.Empleado
+            'EmpleadosCRUD.Actualizar(frmModificar.Empleado)
+        Next
     End Sub
 End Class

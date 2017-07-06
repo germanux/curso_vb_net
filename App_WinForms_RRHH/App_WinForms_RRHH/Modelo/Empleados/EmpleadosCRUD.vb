@@ -52,6 +52,10 @@
         Sub Actualizar(indice As Integer, empleado As Empleado)
             listaEmpleados(indice) = empleado
         End Sub
+        Sub Actualizar(empleado As Empleado, empleadoModif As Empleado)
+            Dim i = listaEmpleados.IndexOf(empleado)
+            listaEmpleados.Item(i) = empleadoModif
+        End Sub
         '' Para eliminar
         '' 1 2 3 4 5 6 7 8 9 10
         '' posicion:

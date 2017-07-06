@@ -1,11 +1,6 @@
 ﻿Imports App_WinForms_RRHH.Modelo
 
 Public Class Form_Alta
-
-    Private Sub Form_Alta_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-
-    End Sub
-
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
         ' TODO: Impedir duplicados
@@ -36,7 +31,6 @@ Public Class Form_Alta
             MessageBox.Show("Error al guardar")
         End Try
     End Sub
-
     Private Sub texto_TextChanged(sender As Object, e As EventArgs) _
         Handles txtNombre.TextChanged, txtApellidos.TextChanged,
         cmbGenero.SelectedValueChanged, domCategoria.SelectedItemChanged,
