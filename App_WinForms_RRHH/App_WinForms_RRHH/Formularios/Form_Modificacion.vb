@@ -20,11 +20,11 @@ Public Class Form_Modificacion
         End Set
     End Property
     Private Sub Form_Modificacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtNombre.Text = _empleado.nombre
-        txtApellidos.Text = _empleado.apellidos
-        cmbGenero.SelectedItem = _empleado.genero
-        domCategoria.SelectedItem = _empleado.categoria
-        numRetribucion.Value = CType(_empleado.retribucionFija, Decimal)
+        txtNombre.Text = Empleado.nombre
+        txtApellidos.Text = Empleado.apellidos
+        cmbGenero.SelectedIndex = Empleado.genero - 1
+        domCategoria.SelectedIndex = Empleado.categoria - 1
+        numRetribucion.Value = CType(Empleado.retribucionFija, Decimal)
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
@@ -42,10 +42,10 @@ Public Class Form_Modificacion
             _empleadoModif.categoria = CType(domCategoria.SelectedIndex + 1, TipoCategoria)
             _empleadoModif.retribucionFija = numRetribucion.Value
 
-            EmpleadosCRUD.Actualizar(_empleado, _empleadoModif)
+            EmpleadosCRUD.Actualizar(Empleado, EmpleadoModif)
 
             Me.Close()
-            MessageBox.Show("Empleado modificado: " & _empleado.ToString())
+            MessageBox.Show("Empleado modificado: " & Empleado.ToString())
         Catch ex As Exception
             MessageBox.Show("Error al guardar")
         End Try

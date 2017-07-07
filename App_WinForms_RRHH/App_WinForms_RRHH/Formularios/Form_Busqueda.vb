@@ -3,6 +3,9 @@
 Public Class Form_Busqueda
     Public listaEmpleados As List(Of Empleado)
 
+    Private Sub Form_Activate(sender As Object, e As EventArgs) Handles Me.Activated
+        BuscarEmpleado()
+    End Sub
     Private Sub cmbNombre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbNombre.SelectedIndexChanged
         BuscarEmpleado()
     End Sub
@@ -31,6 +34,7 @@ Public Class Form_Busqueda
             Dim empleado As Empleado
             empleado = listaEmpleados(indexEmpleado)
             listaElminar.Add(empleado)
+
         Next
         While lstListaEmpleados.SelectedItems.Count > 0
             lstListaEmpleados.Items.Remove(lstListaEmpleados.SelectedItems(0))

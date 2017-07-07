@@ -14,7 +14,8 @@
                 fichero.WriteLine(arrayEmpleados(i).nombre & "," &
                                   arrayEmpleados(i).apellidos & "," &
                                   arrayEmpleados(i).genero & "," &
-                                  arrayEmpleados(i).categoria)
+                                  arrayEmpleados(i).categoria & "," &
+                                  arrayEmpleados(i).retribucionFija)
             Next
             fichero.Close()
             Return True
