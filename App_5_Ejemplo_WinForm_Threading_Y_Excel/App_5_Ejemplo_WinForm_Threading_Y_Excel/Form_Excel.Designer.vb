@@ -28,6 +28,8 @@ Partial Class Form_Excel
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -78,11 +80,30 @@ Partial Class Form_Excel
         Me.NumericUpDown1.Size = New System.Drawing.Size(335, 26)
         Me.NumericUpDown1.TabIndex = 6
         '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(161, 265)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(335, 26)
+        Me.TextBox4.TabIndex = 7
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(380, 299)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(112, 35)
+        Me.Button2.TabIndex = 8
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Form_Excel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(562, 465)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox3)
@@ -105,4 +126,6 @@ Partial Class Form_Excel
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents NumericUpDown1 As NumericUpDown
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Button2 As Button
 End Class
