@@ -7,16 +7,16 @@
         'Private listaEmpleados() As Empleado
         Private listaEmpleados As List(Of Empleado)
 
-        Public Sub Restaurar()
+        Public Sub Restaurar(persistenciaEmpleados As IPersistenciaEmpleados)
             listaEmpleados = New List(Of Empleado)()
             ' EmpleadosFichero.LeerFichero(listaEmpleados.ToArray())
             Dim arrayEmpleados() As Empleado
             arrayEmpleados = listaEmpleados.ToArray()
-            EmpleadosFichero.LeerFichero(arrayEmpleados)
+            persistenciaEmpleados.Importar(arrayEmpleados)
             listaEmpleados = arrayEmpleados.ToList()
         End Sub
-        Public Sub Grabar()
-            EmpleadosFichero.GrabarFichero(listaEmpleados.ToArray())
+        Public Sub Grabar(persistenciaEmpleados As IPersistenciaEmpleados)
+            persistenciaEmpleados.Exportar(listaEmpleados.ToArray())
         End Sub
         Sub Crear(nuevoEmpleado As Empleado)
             ' Asignamos nuevo empleado
