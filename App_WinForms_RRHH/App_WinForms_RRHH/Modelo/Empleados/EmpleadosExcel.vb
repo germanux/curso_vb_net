@@ -1,4 +1,6 @@
 ﻿
+Imports System.Data.OleDb
+
 Namespace Modelo
     Public Class EmpleadosExcel
         Implements IPersistenciaEmpleados
@@ -17,9 +19,68 @@ Namespace Modelo
         End Property
 
         Public Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Importar
-            MessageBox.Show("Importar " & NombreFichero)
-            Throw New NotImplementedException()
+            Dim listaEmpleados As New List(Of Empleado)
+            Dim fila As Integer = 2
+            Dim valorNombre As String = DameValorCelda(NombreFichero, "Hoja1", "A", fila)
+
+            While valorNombre <> ""
+
+                ' AQUI NUEVO EMPLEADO, RELLENARLO CON VALORES, Y A LA LISTA
+                Dim nuevoEmpleado As Empleado
+                nuevoEmpleado.nombre = valorNombre
+                nuevoEmpleado.apellidos = DameValorCelda(NombreFichero, "Hoja1", "B", fila)
+                nuevoEmpleado.genero = CInt(DameValorCelda(NombreFichero, "Hoja1", "C", fila))
+                nuevoEmpleado.categoria = CInt(DameValorCelda(NombreFichero, "Hoja1", "D", fila))
+                nuevoEmpleado.retribucionFija = CSng(DameValorCelda(NombreFichero, "Hoja1", "E", fila))
+                listaEmpleados.Add(nuevoEmpleado)
+                fila = fila + 1
+                valorNombre = DameValorCelda(NombreFichero, "Hoja1", "A", fila)
+            End While
+
+            arrayEmpleados = listaEmpleados.ToArray()
+            Return True
         End Function
+        Public Shared Function DameValorCelda(
+               nombreFichero As String,
+               hoja As String,
+               columna As String,
+               fila As Integer) As String
+
+            If (Not (IO.File.Exists(nombreFichero))) Then
+                Throw New IO.FileNotFoundException("No existe el archivo de Excel indicado")
+            End If
+            If (String.IsNullOrEmpty(hoja) OrElse
+            String.IsNullOrEmpty(columna) OrElse
+           fila < 1 OrElse fila > 65536) Then
+                Throw New ArgumentException("Argumentos/valores no válidos")
+            End If
+            Dim cadenaConexion As String =
+            "Provider=Microsoft.ACE.OLEDB.12.0;" &
+            "Extended Properties='Excel 12.0 Xml;HDR=No';" &
+            "Data Source=" & nombreFichero
+            ' Configurar la conexión
+            Using conex As New OleDbConnection(cadenaConexion)
+                ' Creamos un objeto Command
+                Dim cmd As OleDbCommand = conex.CreateCommand()
+                Dim celda As String = columna & fila
+                ' Formatear la consulta SQL
+                cmd.CommandText = String.Format(
+                "SELECT F1 FROM [{0}${1}:{2}]", hoja, celda, celda)
+
+                ' Abrir la consexion
+                conex.Open()
+                ' Ejecutar la consulta SQL
+                Dim valor As Object
+                Try
+                    valor = cmd.ExecuteScalar()
+                Catch ex As Exception
+                    valor = ""
+                End Try
+                ' Devolver el valor convertido a String
+                Return Convert.ToString(valor)
+            End Using
+        End Function
+
         Public Function Exportar(arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Exportar
 
             Dim oExcel As Object
