@@ -102,9 +102,11 @@
     </Compile>
     <Compile Include="Modelo\Constantes.vb" />
     <Compile Include="Modelo\Empleados\Empleado.vb" />
+    <Compile Include="Modelo\Empleados\EmpleadosAccess.vb" />
     <Compile Include="Modelo\Empleados\EmpleadosCRUD.vb" />
     <Compile Include="Modelo\Empleados\EmpleadosExcel.vb" />
     <Compile Include="Modelo\Empleados\EmpleadosFichero.vb" />
+    <Compile Include="Modelo\Empleados\EmpleadosGenerador.vb" />
     <Compile Include="Modelo\Enumerados.vb" />
     <Compile Include="Modelo\IPersistenciaEmpleados.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

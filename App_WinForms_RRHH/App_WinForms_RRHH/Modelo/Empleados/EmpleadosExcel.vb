@@ -54,10 +54,7 @@ Namespace Modelo
            fila < 1 OrElse fila > 65536) Then
                 Throw New ArgumentException("Argumentos/valores no válidos")
             End If
-            Dim cadenaConexion As String =
-            "Provider=Microsoft.ACE.OLEDB.12.0;" &
-            "Extended Properties='Excel 12.0 Xml;HDR=No';" &
-            "Data Source=" & nombreFichero
+            Dim cadenaConexion As String = Constantes.CADENA_CONEX_EXCEL & nombreFichero
             ' Configurar la conexión
             Using conex As New OleDbConnection(cadenaConexion)
                 ' Creamos un objeto Command

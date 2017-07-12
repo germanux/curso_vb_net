@@ -110,6 +110,8 @@ Public Class MDI_Principal
     End Sub
     Private empleadosFichero As New EmpleadosFichero
     Private empleadosExcel As New EmpleadosExcel
+    Private empleadosAccess As New EmpleadosAccess
+
     Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click, OpenToolStripButton.Click
 
         empleadosFichero.NombreFichero = DialogoAbrirFichero("csv")
@@ -164,5 +166,24 @@ Public Class MDI_Principal
         SaveToolStripMenuItem.Enabled = estado
         SaveToolStripButton.Enabled = estado
         ExportarExcelToolStripMenuItem.Enabled = estado
+        ExportarAccesToolStripMenuItem.Enabled = estado
+    End Sub
+
+    Private Sub ImportarAccessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarAccessToolStripMenuItem.Click
+
+        empleadosAccess.NombreFichero = DialogoAbrirFichero("mdb")
+        EmpleadosCRUD.Restaurar(empleadosAccess)
+        HabilitarMenusGuardarExportar(True)
+    End Sub
+
+    Private Sub ExportarAccesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarAccesToolStripMenuItem.Click
+
+        empleadosAccess.NombreFichero = DialogoGuardarFichero("mdb")
+        EmpleadosCRUD.Grabar(empleadosAccess)
+    End Sub
+
+    Private Sub Generar10000ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Generar10000ToolStripMenuItem.Click
+        Dim generadorEmpleados As New EmpleadosGenerador()
+        EmpleadosCRUD.Restaurar(generadorEmpleados)
     End Sub
 End Class
