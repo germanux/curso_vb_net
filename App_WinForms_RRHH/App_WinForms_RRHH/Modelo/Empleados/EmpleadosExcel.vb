@@ -54,9 +54,10 @@ Namespace Modelo
            fila < 1 OrElse fila > 65536) Then
                 Throw New ArgumentException("Argumentos/valores no válidos")
             End If
-            Dim cadenaConexion As String = Constantes.CADENA_CONEX_EXCEL & nombreFichero
+            Dim cadena_conexion = EmpleadosAccess.CrearCadenaConexion(PROVEEDOR_EXCEL, nombreFichero) _
+                & PROPIEDADES_EXCEL
             ' Configurar la conexión
-            Using conex As New OleDbConnection(cadenaConexion)
+            Using conex As New OleDbConnection(cadena_conexion)
                 ' Creamos un objeto Command
                 Dim cmd As OleDbCommand = conex.CreateCommand()
                 Dim celda As String = columna & fila

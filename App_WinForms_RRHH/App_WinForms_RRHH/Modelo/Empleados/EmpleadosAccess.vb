@@ -18,7 +18,7 @@ Namespace Modelo
         End Property
         Public Function Exportar(arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Exportar
 
-            Dim cadena_conexion As String = Constantes.CADENA_CONEX_ACCESS & NombreFichero
+            Dim cadena_conexion = CrearCadenaConexion(PROVEEDOR_ACCESS, NombreFichero)
             ' Despues del nombre del fichero, o antes, separado por punto y coma, usuario y password
             'TODO: Añadir      ";User Id=admin;Password=Contraseña_1234"
 
@@ -29,6 +29,7 @@ Namespace Modelo
 
                     For Each empleado As Empleado In arrayEmpleados
                         ' INSERT INTO empleado (Nombre, Apellidos, Genero) VALUES ('Juan', 'Lopez', 2)
+
                         Dim sql As String
                         sql = "INSERT INTO empleado ( Nombre, Apellidos, Genero, Categoria, " _
                             & "Retribucion_Fija ) VALUES ( '" _
@@ -54,7 +55,9 @@ Namespace Modelo
 
             Dim listaEmpleados As New List(Of Empleado)
 
-            Dim cadena_conexion = Constantes.CADENA_CONEX_ACCESS & NombreFichero
+            Dim cadena_conexion = CrearCadenaConexion(PROVEEDOR_ACCESS, NombreFichero)
+
+            Console.WriteLine("Cadena de conexión: {0}", cadena_conexion)
 
             Using conexionDB As New OleDbConnection(cadena_conexion)
 
@@ -87,6 +90,12 @@ Namespace Modelo
 
             arrayEmpleados = listaEmpleados.ToArray()
             Return True
+        End Function
+        Public Shared Function CrearCadenaConexion(proveedor As String, fuente_datos As String) As String
+            Dim constructor As New OleDbConnectionStringBuilder()
+            constructor.Provider = proveedor
+            constructor.DataSource = fuente_datos
+            Return constructor.ConnectionString
         End Function
     End Class
 
