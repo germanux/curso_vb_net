@@ -76,6 +76,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelo\EmpleadosBaseOleDB.vb" />
+    <Compile Include="Modelo\Empleados\EmpleadosBaseImportador.vb" />
     <Compile Include="Formularios\Form_Alta.Designer.vb">
       <DependentUpon>Form_Alta.vb</DependentUpon>
     </Compile>
