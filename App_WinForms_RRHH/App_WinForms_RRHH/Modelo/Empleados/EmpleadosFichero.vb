@@ -1,20 +1,8 @@
 ﻿Namespace Modelo
     Class EmpleadosFichero
-        Implements IPersistenciaEmpleados
-        Private _nombreFichero As String
-        Public Property NombreFichero As String Implements IPersistenciaEmpleados.nombreFichero
-            Get
-                Return _nombreFichero
-            End Get
-            Set(value As String)
-                If (value = "") Then
-                    Throw New Exception("No se ha establido el nombre del fichero")
-                Else
-                    _nombreFichero = value
-                End If
-            End Set
-        End Property
-        Public Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Importar
+        Inherits EmpleadosBaseImportador
+
+        Public Overrides Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean
             ' Declarar variables:
             '   arrayRegistros de tipo cadena
             Dim arrayRegistros() As String
@@ -62,7 +50,7 @@
         End Function
         ' Graba un arrray de empleados en un fichero CSV y devuelve true si se ha grabado
         ' o devuelve false si ha habido un fallo de escritura
-        Public Function Exportar(arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Exportar
+        Public Overrides Function Exportar(arrayEmpleados() As Empleado) As Boolean
 
             Dim fichero As System.IO.StreamWriter
             fichero = My.Computer.FileSystem.OpenTextFileWriter(NombreFichero, False)
@@ -77,5 +65,6 @@
             fichero.Close()
             Return True
         End Function
+
     End Class
 End Namespace

@@ -15,8 +15,9 @@
                 End If
             End Set
         End Property
+        Public MustOverride Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Importar
+
         Public MustOverride Function Exportar(arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Exportar
 
-        Public MustOverride Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Importar
     End Class
 End Namespace

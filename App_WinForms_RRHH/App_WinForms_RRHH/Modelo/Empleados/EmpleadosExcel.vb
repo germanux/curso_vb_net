@@ -3,22 +3,9 @@ Imports System.Data.OleDb
 
 Namespace Modelo
     Public Class EmpleadosExcel
-        Implements IPersistenciaEmpleados
-        Private _nombreFichero As String
-        Public Property NombreFichero As String Implements IPersistenciaEmpleados.nombreFichero
-            Get
-                Return _nombreFichero
-            End Get
-            Set(value As String)
-                If (value = "") Then
-                    Throw New Exception("No se ha establido el nombre del fichero")
-                Else
-                    _nombreFichero = value
-                End If
-            End Set
-        End Property
+        Inherits EmpleadosBaseOleDB
 
-        Public Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean Implements IPersistenciaEmpleados.Importar
+        Public Overrides Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean
             Dim listaEmpleados As New List(Of Empleado)
             Dim fila As Integer = 2
             Dim valorNombre As String = DameValorCelda(NombreFichero, "Hoja1", "A", fila)
