@@ -45,29 +45,14 @@ Namespace Modelo
         End Function
         Public Overrides Function Exportar(arrayEmpleados() As Empleado) As Boolean
 
-            Dim cadena_conexion = CrearCadenaConexion(PROVEEDOR_ACCESS, NombreFichero)
-            ' Despues del nombre del fichero, o antes, separado por punto y coma, usuario y password
-            'TODO: Añadir      ";User Id=admin;Password=Contraseña_1234"
-
             Using conexionDB As New OleDbConnection(cadena_conexion)
 
                 Try
                     conexionDB.Open()
 
                     For Each empleado As Empleado In arrayEmpleados
-                        ' INSERT INTO empleado (Nombre, Apellidos, Genero) VALUES ('Juan', 'Lopez', 2)
 
-                        Dim sql As String
-                        sql = "INSERT INTO empleado ( Nombre, Apellidos, Genero, Categoria, " _
-                            & "Retribucion_Fija ) VALUES (@nombre, @apellidos, @genero, @categoria, @retribucionFija )"
-
-                        ''" _
-                        '& empleado.nombre & "', '" & empleado.apellidos & "', " _
-                        '& empleado.genero & ", " & empleado.categoria & ", " _
-                        '& empleado.retribucionFija & " ) "
-
-                        Console.WriteLine(sql)
-                        Dim comando As OleDbCommand = New OleDbCommand(sql, conexionDB)
+                        Dim comando As OleDbCommand = New OleDbCommand(consultaSQL, conexionDB)
 
                         Dim paramNombre As OleDbParameter = New OleDbParameter("@nombre", empleado.nombre)
                         paramNombre.Direction = ParameterDirection.Input

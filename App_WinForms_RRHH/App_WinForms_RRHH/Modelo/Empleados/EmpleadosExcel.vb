@@ -15,8 +15,11 @@ Namespace Modelo
         End Function
 
         Public Overrides Function Exportar(arrayEmpleados() As Empleado) As Boolean
+            cadena_conexion = CrearCadenaConexion(PROVEEDOR_EXCEL, NombreFichero) & PROPIEDADES_EXCEL
 
-            Return True
+            consultaSQL = "INSERT INTO [Hoja1$] ( Nombre, Apellidos, Genero, Categoria, Retribucion_Fija ) VALUES (@nombre, @apellidos, @genero, @categoria, @retribucionFija )"
+
+            Return MyBase.Exportar(arrayEmpleados)
         End Function
 
     End Class
