@@ -5,6 +5,7 @@ Namespace Modelo
         Implements IEmpleadosCRUD
 
         Private cadena_conexion As String
+        Public avisarEnModicacion As TipoDelAvisarEnModificacion
 
         ' NO
         Public ReadOnly Property Cantidad As Integer Implements IEmpleadosCRUD.Cantidad
@@ -26,7 +27,7 @@ Namespace Modelo
             Throw New NotImplementedException()
         End Sub
         Public Sub EstablecerAvisarEnModificacion(funcionDelegada As TipoDelAvisarEnModificacion) Implements IEmpleadosCRUD.EstablecerAvisarEnModificacion
-            Throw New NotImplementedException()
+            avisarEnModicacion = funcionDelegada
         End Sub
         Public Sub Grabar(persistenciaEmpleados As IPersistenciaEmpleados) Implements IEmpleadosCRUD.Grabar
             Throw New NotImplementedException()
@@ -56,9 +57,6 @@ Namespace Modelo
                         BuscarEmpleados.Add(nuevoEmpleado)
                     Loop
                     dataReader.Close()
-
-                    MessageBox.Show("Se han importado " & BuscarEmpleados.Count & " empleados.")
-
                 Catch ex As Exception
                     MessageBox.Show("Error al importar " & ex.Message)
                 End Try

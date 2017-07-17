@@ -5,7 +5,7 @@ Public Class MDI_Principal
 
     Private frmAlta As Form_Alta
     Private frmLista As Form_Busqueda
-    Friend empleadosCRUD As EmpleadosListaCRUD
+    Friend empleadosCRUD As EmpleadosAccessCRUD
 
     Private Sub Abrir_Formulario(Of TForm As {Form, New})(ByRef formulario As TForm)
         If formulario Is Nothing OrElse formulario.IsDisposed() Then
@@ -93,7 +93,7 @@ Public Class MDI_Principal
         Me.ContextMenuStrip = ContextMenuStrip1
         EmpleadosToolStripMenuItem.Enabled = False
         'EmpleadosListaCRUD.avisarEnModicacion = AddressOf HabilitarMenusGuardarExportar
-        empleadosCRUD = New EmpleadosListaCRUD()
+        empleadosCRUD = New EmpleadosAccessCRUD()
         empleadosCRUD.EstablecerAvisarEnModificacion(AddressOf HabilitarMenusGuardarExportar)
     End Sub
 
