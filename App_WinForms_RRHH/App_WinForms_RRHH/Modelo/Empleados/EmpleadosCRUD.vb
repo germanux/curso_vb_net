@@ -1,13 +1,23 @@
 ﻿Namespace Modelo
-    Delegate Sub TipoDelAvisarEnModificacion(estado As Boolean)
 
     ' CRUD: Create, Read, Update, Delete
     ' Crear, Leer, Actualizar, Eliminar
-    Module EmpleadosCRUD
+    Class EmpleadosListaCRUD
+        Implements IEmpleadosCRUD
+
         Private listaEmpleados As List(Of Empleado)
         Public avisarEnModicacion As TipoDelAvisarEnModificacion
 
-        Public Sub Restaurar(persistenciaEmpleados As IPersistenciaEmpleados)
+        Private ReadOnly Property Cantidad As Integer Implements IEmpleadosCRUD.Cantidad
+            Get
+                Return listaEmpleados.Count
+            End Get
+        End Property
+        Public Sub EstablecerAvisarEnModificacion(funcionDelegada As TipoDelAvisarEnModificacion) Implements IEmpleadosCRUD.EstablecerAvisarEnModificacion
+            avisarEnModicacion = funcionDelegada
+        End Sub
+
+        Public Sub Restaurar(persistenciaEmpleados As IPersistenciaEmpleados) Implements IEmpleadosCRUD.Restaurar
             listaEmpleados = New List(Of Empleado)()
             ' EmpleadosFichero.LeerFichero(listaEmpleados.ToArray())
             Dim arrayEmpleados() As Empleado
@@ -16,19 +26,16 @@
             listaEmpleados = arrayEmpleados.ToList()
             avisarEnModicacion(True)
         End Sub
-        Public Sub Grabar(persistenciaEmpleados As IPersistenciaEmpleados)
+        Public Sub Grabar(persistenciaEmpleados As IPersistenciaEmpleados) Implements IEmpleadosCRUD.Grabar
             persistenciaEmpleados.Exportar(listaEmpleados.ToArray())
             avisarEnModicacion(False)
         End Sub
-        Sub Crear(nuevoEmpleado As Empleado)
+        Sub Crear(nuevoEmpleado As Empleado) Implements IEmpleadosCRUD.Crear
             ' Asignamos nuevo empleado
             listaEmpleados.Add(nuevoEmpleado)
             avisarEnModicacion(True)
         End Sub
-        Function Cantidad() As Integer
-            Return listaEmpleados.Count
-        End Function
-        Function BuscarEmpleados(nombre As String, apellido As String) As List(Of Empleado)
+        Function BuscarEmpleados(nombre As String, apellido As String) As List(Of Empleado) Implements IEmpleadosCRUD.BuscarEmpleados
             nombre = nombre.ToUpper()
             apellido = apellido.ToUpper()
             BuscarEmpleados = New List(Of Empleado)()
@@ -53,7 +60,7 @@
             listaEmpleados(indice) = empleado
             avisarEnModicacion(True)
         End Sub
-        Sub Actualizar(empleado As Empleado, empleadoModif As Empleado)
+        Sub Actualizar(empleado As Empleado, empleadoModif As Empleado) Implements IEmpleadosCRUD.Actualizar
             Dim i = listaEmpleados.IndexOf(empleado)
             Actualizar(i, empleadoModif)
         End Sub
@@ -65,15 +72,17 @@
             listaEmpleados.RemoveAt(indice)
             avisarEnModicacion(True)
         End Sub
-        Sub Eliminar(empleado As Empleado)
+        Sub Eliminar(empleado As Empleado) Implements IEmpleadosCRUD.Eliminar
             listaEmpleados.Remove(empleado)
             avisarEnModicacion(True)
         End Sub
-        Sub Eliminar(empleados As List(Of Empleado))
+        Sub Eliminar(empleados As List(Of Empleado)) Implements IEmpleadosCRUD.Eliminar
             For Each empleado In empleados
                 Eliminar(empleado)
             Next
             avisarEnModicacion(True)
         End Sub
-    End Module
+
+
+    End Class
 End Namespace

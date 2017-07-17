@@ -42,7 +42,7 @@ Public Class Form_Modificacion
             _empleadoModif.categoria = CType(domCategoria.SelectedIndex + 1, TipoCategoria)
             _empleadoModif.retribucionFija = numRetribucion.Value
 
-            EmpleadosCRUD.Actualizar(Empleado, EmpleadoModif)
+            CType(Me.MdiParent, MDI_Principal).empleadosCRUD.Actualizar(Empleado, EmpleadoModif)
 
             Me.Close()
             MessageBox.Show("Empleado modificado: " & Empleado.ToString())

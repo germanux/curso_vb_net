@@ -23,7 +23,7 @@ Public Class Form_Alta
             nuevoEmpleado.categoria = CType(domCategoria.SelectedIndex + 1, TipoCategoria)
             nuevoEmpleado.retribucionFija = numRetribucion.Value
 
-            EmpleadosCRUD.Crear(nuevoEmpleado)
+            CType(Me.MdiParent, MDI_Principal).empleadosCRUD.Crear(nuevoEmpleado)
 
             Me.Close()
             MessageBox.Show("Empleado creado: " & nuevoEmpleado.ToString())

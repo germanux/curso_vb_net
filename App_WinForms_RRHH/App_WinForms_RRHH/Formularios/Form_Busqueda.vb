@@ -15,7 +15,7 @@ Public Class Form_Busqueda
     End Sub
     Private Sub BuscarEmpleado()
         lstListaEmpleados.Items.Clear()
-        listaEmpleados = EmpleadosCRUD.BuscarEmpleados(cmbNombre.Text, cmbApellidos.Text)
+        listaEmpleados = CType(Me.MdiParent, MDI_Principal).empleadosCRUD.BuscarEmpleados(cmbNombre.Text, cmbApellidos.Text)
 
         For Each empleado As Empleado In listaEmpleados
             lstListaEmpleados.Items.Add(empleado.nombre & " " & empleado.apellidos)
@@ -39,7 +39,7 @@ Public Class Form_Busqueda
         While lstListaEmpleados.SelectedItems.Count > 0
             lstListaEmpleados.Items.Remove(lstListaEmpleados.SelectedItems(0))
         End While
-        EmpleadosCRUD.Eliminar(listaElminar)
+        CType(Me.MdiParent, MDI_Principal).empleadosCRUD.Eliminar(listaElminar)
     End Sub
     Private Sub btnModificacion_Click(sender As Object, e As EventArgs) Handles btnModificacion.Click
         Dim listaModificar As New List(Of Empleado)
