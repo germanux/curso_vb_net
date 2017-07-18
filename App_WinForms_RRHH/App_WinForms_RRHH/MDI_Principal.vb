@@ -5,7 +5,7 @@ Public Class MDI_Principal
 
     Private frmAlta As Form_Alta
     Private frmLista As Form_Busqueda
-    Friend empleadosCRUD As EmpleadosAccessCRUD
+    Friend empleadosCRUD As IEmpleadosCRUD
 
     Private Sub Abrir_Formulario(Of TForm As {Form, New})(ByRef formulario As TForm)
         If formulario Is Nothing OrElse formulario.IsDisposed() Then
