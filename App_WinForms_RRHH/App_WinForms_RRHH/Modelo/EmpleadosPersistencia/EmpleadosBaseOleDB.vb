@@ -54,36 +54,11 @@ Namespace Modelo
 
                         Dim comando As OleDbCommand = New OleDbCommand(consultaSQL, conexionDB)
 
-                        Dim paramNombre As OleDbParameter = New OleDbParameter("@nombre", empleado.nombre)
-                        paramNombre.Direction = ParameterDirection.Input
-                        paramNombre.DbType = DbType.String
-                        paramNombre.Size = 30
-
-                        Dim paramApellidos As OleDbParameter = New OleDbParameter("@apellidos", empleado.apellidos)
-                        paramApellidos.Direction = ParameterDirection.Input
-                        paramApellidos.DbType = DbType.String
-                        paramApellidos.Size = 30
-
-                        Dim paramgenero As OleDbParameter = New OleDbParameter("@genero", empleado.genero)
-                        paramgenero.Direction = ParameterDirection.Input
-                        paramgenero.DbType = DbType.Int32
-                        paramgenero.Size = 30
-
-                        Dim paramcategoria As OleDbParameter = New OleDbParameter("@categoria", empleado.categoria)
-                        paramcategoria.Direction = ParameterDirection.Input
-                        paramcategoria.DbType = DbType.Int32
-                        paramcategoria.Size = 30
-
-                        Dim paramretribucionFija As OleDbParameter = New OleDbParameter("@retribucionFija", empleado.retribucionFija)
-                        paramretribucionFija.Direction = ParameterDirection.Input
-                        paramretribucionFija.DbType = DbType.Single
-                        paramretribucionFija.Size = 30
-
-                        comando.Parameters.Add(paramNombre)
-                        comando.Parameters.Add(paramApellidos)
-                        comando.Parameters.Add(paramgenero)
-                        comando.Parameters.Add(paramcategoria)
-                        comando.Parameters.Add(paramretribucionFija)
+                        comando.AñadirParametro("@nombre", empleado.nombre)
+                        comando.AñadirParametro("@apellidos", empleado.apellidos)
+                        comando.AñadirParametro("@genero", empleado.genero, , DbType.Int32)
+                        comando.AñadirParametro("@categoria", empleado.categoria, , DbType.Int32)
+                        comando.AñadirParametro("@retribucionFija", empleado.retribucionFija, , DbType.Single)
 
                         comando.ExecuteNonQuery()
                     Next
@@ -97,12 +72,6 @@ Namespace Modelo
             Return True
         End Function
 
-        Public Shared Function CrearCadenaConexion(proveedor As String, fuente_datos As String) As String
-            Dim constructor As New OleDbConnectionStringBuilder()
-            constructor.Provider = proveedor
-            constructor.DataSource = fuente_datos
-            Return constructor.ConnectionString
-        End Function
     End Class
 
 End Namespace

@@ -92,9 +92,6 @@ Public Class MDI_Principal
 
         Me.ContextMenuStrip = ContextMenuStrip1
         EmpleadosToolStripMenuItem.Enabled = False
-        'EmpleadosListaCRUD.avisarEnModicacion = AddressOf HabilitarMenusGuardarExportar
-        empleadosCRUD = New EmpleadosAccessCRUD()
-        empleadosCRUD.EstablecerAvisarEnModificacion(AddressOf HabilitarMenusGuardarExportar)
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
@@ -118,6 +115,8 @@ Public Class MDI_Principal
     Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click, OpenToolStripButton.Click
 
         empleadosFichero.NombreFichero = DialogoAbrirFichero("csv")
+        empleadosCRUD = New EmpleadosListaCRUD()
+        empleadosCRUD.EstablecerAvisarEnModificacion(AddressOf HabilitarMenusGuardarExportar)
         empleadosCRUD.Restaurar(empleadosFichero)
         HabilitarMenusGuardarExportar(True)
     End Sub
@@ -156,6 +155,8 @@ Public Class MDI_Principal
     End Sub
     Private Sub ImportarExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarExcelToolStripMenuItem.Click
         empleadosExcel.NombreFichero = DialogoAbrirFichero("xlsx")
+        empleadosCRUD = New EmpleadosListaCRUD()
+        empleadosCRUD.EstablecerAvisarEnModificacion(AddressOf HabilitarMenusGuardarExportar)
         empleadosCRUD.Restaurar(empleadosExcel)
         HabilitarMenusGuardarExportar(True)
     End Sub
@@ -175,6 +176,8 @@ Public Class MDI_Principal
     Private Sub ImportarAccessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarAccessToolStripMenuItem.Click
 
         empleadosAccess.NombreFichero = DialogoAbrirFichero("mdb")
+        empleadosCRUD = New EmpleadosAccessCRUD()
+        empleadosCRUD.EstablecerAvisarEnModificacion(AddressOf HabilitarMenusGuardarExportar)
         empleadosCRUD.Restaurar(empleadosAccess)
         HabilitarMenusGuardarExportar(True)
     End Sub

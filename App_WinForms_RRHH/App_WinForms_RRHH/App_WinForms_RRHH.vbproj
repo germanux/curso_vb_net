@@ -106,13 +106,14 @@
     <Compile Include="Modelo\Empleados\Empleado.vb" />
     <Compile Include="Modelo\EmpleadosPersistencia\EmpleadosAccess.vb" />
     <Compile Include="Modelo\Empleados\EmpleadosAccessCRUD.vb" />
-    <Compile Include="Modelo\Empleados\EmpleadosCRUD.vb" />
+    <Compile Include="Modelo\Empleados\EmpleadosListaCRUD.vb" />
     <Compile Include="Modelo\EmpleadosPersistencia\EmpleadosExcel.vb" />
     <Compile Include="Modelo\EmpleadosPersistencia\EmpleadosFichero.vb" />
     <Compile Include="Modelo\EmpleadosPersistencia\EmpleadosGenerador.vb" />
     <Compile Include="Modelo\Empleados\IEmpleadosCRUD.vb" />
     <Compile Include="Modelo\Enumerados.vb" />
     <Compile Include="Modelo\EmpleadosPersistencia\IPersistenciaEmpleados.vb" />
+    <Compile Include="Modelo\UtilidadesBD.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
