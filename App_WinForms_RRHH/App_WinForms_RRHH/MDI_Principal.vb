@@ -176,7 +176,7 @@ Public Class MDI_Principal
     Private Sub ImportarAccessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarAccessToolStripMenuItem.Click
 
         empleadosAccess.NombreFichero = DialogoAbrirFichero("mdb")
-        empleadosCRUD = New EmpleadosAccessCRUD()
+        empleadosCRUD = New EmpleadosDataSetCRUD()
         empleadosCRUD.EstablecerAvisarEnModificacion(AddressOf HabilitarMenusGuardarExportar)
         empleadosCRUD.Restaurar(empleadosAccess)
         HabilitarMenusGuardarExportar(True)

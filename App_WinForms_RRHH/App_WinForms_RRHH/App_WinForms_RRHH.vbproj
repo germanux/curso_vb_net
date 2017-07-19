@@ -106,6 +106,7 @@
     <Compile Include="Modelo\Empleados\Empleado.vb" />
     <Compile Include="Modelo\EmpleadosPersistencia\EmpleadosAccess.vb" />
     <Compile Include="Modelo\Empleados\EmpleadosAccessCRUD.vb" />
+    <Compile Include="Modelo\Empleados\EmpleadosDataSetCRUD.vb" />
     <Compile Include="Modelo\Empleados\EmpleadosListaCRUD.vb" />
     <Compile Include="Modelo\EmpleadosPersistencia\EmpleadosExcel.vb" />
     <Compile Include="Modelo\EmpleadosPersistencia\EmpleadosFichero.vb" />
