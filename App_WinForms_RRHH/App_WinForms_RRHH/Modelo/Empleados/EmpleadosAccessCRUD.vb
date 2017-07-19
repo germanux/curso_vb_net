@@ -7,15 +7,36 @@ Namespace Modelo
         Private cadena_conexion As String
         Public avisarEnModicacion As TipoDelAvisarEnModificacion
 
-        ' NO
         Public ReadOnly Property Cantidad As Integer Implements IEmpleadosCRUD.Cantidad
             Get
-                Throw New NotImplementedException()
+                Dim comando = ComandoConConexion(cadena_conexion, "SELECT  COUNT(*) FROM Empleado ")
+                Cantidad = comando.ExecuteScalar()
+                comando.Cerrar()
+                Return Cantidad
             End Get
         End Property
-        '?
         Public Sub Actualizar(empleado As Empleado, empleadoModif As Empleado) Implements IEmpleadosCRUD.Actualizar
-            Throw New NotImplementedException()
+            If empleado.nombre = "" Or empleado.apellidos = "" Then
+                Throw New ArgumentException()
+            End If
+            Dim consultaSQL = "UPDATE empleado SET Nombre = @nombre, Apellidos = @apellidos, Genero = @genero,  " _
+                           & " Categoria = @categoria, Retribucion_Fija = @retribucionFija  " _
+                           & " WHERE Nombre = @nombreABuscar AND Apellidos = @apellidosABuscar ; "
+
+            Dim comando As OleDbCommand = ComandoConConexion(cadena_conexion, consultaSQL)
+
+            comando.AñadirParametro("@nombre", empleadoModif.nombre)
+            comando.AñadirParametro("@apellidos", empleadoModif.apellidos)
+            comando.AñadirParametro("@genero", empleadoModif.genero, , DbType.Int32)
+            comando.AñadirParametro("@categoria", empleadoModif.categoria, , DbType.Int32)
+            comando.AñadirParametro("@retribucionFija", empleadoModif.retribucionFija, , DbType.Single)
+
+            comando.AñadirParametro("@nombreABuscar", empleado.nombre)
+            comando.AñadirParametro("@apellidosABuscar", empleado.apellidos)
+
+            comando.ExecuteNonQuery()
+            comando.Cerrar()
+
         End Sub
         Public Sub Crear(nuevoEmpleado As Empleado) Implements IEmpleadosCRUD.Crear
 
@@ -38,7 +59,7 @@ Namespace Modelo
             If nombre <> "" Or apellidos <> "" Then
                 consultaSQL = consultaSQL + " WHERE "
                 If nombre <> "" Then
-                    consultaSQL = consultaSQL + " nombre LIKE '%' + @nombre +'%' "
+                    consultaSQL = consultaSQL + " nombre Like '%' + @nombre +'%' "
                 End If
                 If nombre <> "" And apellidos <> "" Then
                     consultaSQL = consultaSQL + " AND "
