@@ -64,6 +64,7 @@ Partial Class MDI_Principal
         Me.ModificaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuardarAutomaticamenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Generar10000ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -96,16 +97,19 @@ Partial Class MDI_Principal
         Me.tolAlta = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.tolBaja = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Generar10000ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NUEVAOPCIONToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.EditMenu, Me.ViewMenu, Me.EmpleadosToolStripMenuItem, Me.ToolsMenu, Me.WindowsMenu, Me.HelpMenu})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.EditMenu, Me.ViewMenu, Me.EmpleadosToolStripMenuItem, Me.ToolsMenu, Me.WindowsMenu, Me.HelpMenu, Me.NUEVAOPCIONToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
@@ -391,6 +395,12 @@ Partial Class MDI_Principal
         Me.GuardarAutomaticamenteToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.GuardarAutomaticamenteToolStripMenuItem.Text = "&Guardar automaticamente"
         '
+        'Generar10000ToolStripMenuItem
+        '
+        Me.Generar10000ToolStripMenuItem.Name = "Generar10000ToolStripMenuItem"
+        Me.Generar10000ToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.Generar10000ToolStripMenuItem.Text = "Generar 100000"
+        '
         'ToolsMenu
         '
         Me.ToolsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
@@ -614,17 +624,32 @@ Partial Class MDI_Principal
         Me.tolBaja.Size = New System.Drawing.Size(100, 22)
         Me.tolBaja.Text = "Baja"
         '
-        'Generar10000ToolStripMenuItem
+        'NUEVAOPCIONToolStripMenuItem
         '
-        Me.Generar10000ToolStripMenuItem.Name = "Generar10000ToolStripMenuItem"
-        Me.Generar10000ToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.Generar10000ToolStripMenuItem.Text = "Generar 100000"
+        Me.NUEVAOPCIONToolStripMenuItem.Name = "NUEVAOPCIONToolStripMenuItem"
+        Me.NUEVAOPCIONToolStripMenuItem.Size = New System.Drawing.Size(104, 19)
+        Me.NUEVAOPCIONToolStripMenuItem.Text = "NUEVA OPCION"
+        '
+        'MonthCalendar1
+        '
+        Me.MonthCalendar1.Location = New System.Drawing.Point(441, 199)
+        Me.MonthCalendar1.Name = "MonthCalendar1"
+        Me.MonthCalendar1.TabIndex = 11
+        '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Location = New System.Drawing.Point(668, 243)
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(120, 26)
+        Me.NumericUpDown1.TabIndex = 12
         '
         'MDI_Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(948, 697)
+        Me.Controls.Add(Me.NumericUpDown1)
+        Me.Controls.Add(Me.MonthCalendar1)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
@@ -642,6 +667,7 @@ Partial Class MDI_Principal
         Me.StatusStrip.ResumeLayout(False)
         Me.StatusStrip.PerformLayout()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -718,4 +744,7 @@ Partial Class MDI_Principal
     Friend WithEvents ImportarAccessToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExportarAccesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Generar10000ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NUEVAOPCIONToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MonthCalendar1 As MonthCalendar
+    Friend WithEvents NumericUpDown1 As NumericUpDown
 End Class

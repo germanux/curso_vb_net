@@ -20,6 +20,7 @@ Public Class Form_Busqueda
         For Each empleado As Empleado In listaEmpleados
             lstListaEmpleados.Items.Add(empleado.nombre & " " & empleado.apellidos)
         Next
+        txtCantidadEncontrados.Text = lstListaEmpleados.Items.Count.ToString()
     End Sub
     Private Sub btnAlta_Click(sender As Object, e As EventArgs) Handles btnAlta.Click
         Dim mdiPrincipal As MDI_Principal
@@ -52,5 +53,9 @@ Public Class Form_Busqueda
             'listaEmpleados(indexEmpleado) = frmModificar.Empleado
             'EmpleadosCRUD.Actualizar(frmModificar.Empleado)
         Next
+    End Sub
+
+    Private Sub txtCantidadTotal_TextChanged(sender As Object, e As EventArgs) Handles txtCantidadTotal.TextChanged
+
     End Sub
 End Class

@@ -192,4 +192,9 @@ Public Class MDI_Principal
         Dim generadorEmpleados As New EmpleadosGenerador()
         empleadosCRUD.Restaurar(generadorEmpleados)
     End Sub
+
+    Private Sub NUEVAOPCIONToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NUEVAOPCIONToolStripMenuItem.Click
+
+    End Sub
+
 End Class

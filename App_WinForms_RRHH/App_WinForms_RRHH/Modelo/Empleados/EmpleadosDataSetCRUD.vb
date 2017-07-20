@@ -53,12 +53,22 @@ Namespace Modelo
 
         Public ReadOnly Property Cantidad As Integer Implements IEmpleadosCRUD.Cantidad
             Get
-                Throw New NotImplementedException()
+                Return 10
             End Get
         End Property
 
         Public Sub Actualizar(empleado As Empleado, empleadoModif As Empleado) Implements IEmpleadosCRUD.Actualizar
-            Throw New NotImplementedException()
+            Dim filaAEditar As DataRow = FiltroEmpeladosRow(empleado.nombre, empleado.apellidos)
+
+            filaAEditar.BeginEdit()
+
+            filaAEditar("nombre") = empleadoModif.nombre
+            filaAEditar("apellidos") = empleadoModif.apellidos
+            filaAEditar("genero") = empleadoModif.genero
+            filaAEditar("categoria") = empleadoModif.categoria
+            filaAEditar("retribucion_fija") = empleadoModif.retribucionFija
+
+            filaAEditar.EndEdit()
         End Sub
 
         Public Sub Crear(nuevoEmpleado As Empleado) Implements IEmpleadosCRUD.Crear

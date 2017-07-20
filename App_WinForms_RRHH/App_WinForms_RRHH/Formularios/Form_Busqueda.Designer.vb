@@ -33,6 +33,10 @@ Partial Class Form_Busqueda
         Me.btnAlta = New System.Windows.Forms.Button()
         Me.btnModificacion = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtCantidadTotal = New System.Windows.Forms.TextBox()
+        Me.txtCantidadEncontrados = New System.Windows.Forms.TextBox()
+        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
         Me.SuspendLayout()
         '
         'lstListaEmpleados
@@ -49,7 +53,7 @@ Partial Class Form_Busqueda
         'cmbNombre
         '
         Me.cmbNombre.FormattingEnabled = True
-        Me.cmbNombre.Location = New System.Drawing.Point(175, 62)
+        Me.cmbNombre.Location = New System.Drawing.Point(175, 48)
         Me.cmbNombre.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmbNombre.Name = "cmbNombre"
         Me.cmbNombre.Size = New System.Drawing.Size(225, 28)
@@ -68,7 +72,7 @@ Partial Class Form_Busqueda
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(39, 65)
+        Me.Label2.Location = New System.Drawing.Point(39, 51)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 20)
         Me.Label2.TabIndex = 3
@@ -77,7 +81,7 @@ Partial Class Form_Busqueda
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(39, 104)
+        Me.Label3.Location = New System.Drawing.Point(39, 89)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(77, 20)
         Me.Label3.TabIndex = 4
@@ -86,7 +90,7 @@ Partial Class Form_Busqueda
         'cmbApellidos
         '
         Me.cmbApellidos.FormattingEnabled = True
-        Me.cmbApellidos.Location = New System.Drawing.Point(175, 102)
+        Me.cmbApellidos.Location = New System.Drawing.Point(175, 86)
         Me.cmbApellidos.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cmbApellidos.Name = "cmbApellidos"
         Me.cmbApellidos.Size = New System.Drawing.Size(225, 28)
@@ -139,11 +143,50 @@ Partial Class Form_Busqueda
         Me.btnCerrar.Text = "Cerrar"
         Me.btnCerrar.UseVisualStyleBackColor = True
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(39, 135)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(145, 20)
+        Me.Label5.TabIndex = 11
+        Me.Label5.Text = "Empleados totales:"
+        '
+        'txtCantidadTotal
+        '
+        Me.txtCantidadTotal.Location = New System.Drawing.Point(296, 129)
+        Me.txtCantidadTotal.Name = "txtCantidadTotal"
+        Me.txtCantidadTotal.ReadOnly = True
+        Me.txtCantidadTotal.Size = New System.Drawing.Size(100, 26)
+        Me.txtCantidadTotal.TabIndex = 12
+        '
+        'txtCantidadEncontrados
+        '
+        Me.txtCantidadEncontrados.Location = New System.Drawing.Point(296, 160)
+        Me.txtCantidadEncontrados.Name = "txtCantidadEncontrados"
+        Me.txtCantidadEncontrados.ReadOnly = True
+        Me.txtCantidadEncontrados.Size = New System.Drawing.Size(100, 26)
+        Me.txtCantidadEncontrados.TabIndex = 13
+        '
+        'CheckedListBox1
+        '
+        Me.CheckedListBox1.Enabled = False
+        Me.CheckedListBox1.FormattingEnabled = True
+        Me.CheckedListBox1.Items.AddRange(New Object() {"aaaaa", "b", "cccc", "dddd"})
+        Me.CheckedListBox1.Location = New System.Drawing.Point(443, 89)
+        Me.CheckedListBox1.Name = "CheckedListBox1"
+        Me.CheckedListBox1.Size = New System.Drawing.Size(185, 193)
+        Me.CheckedListBox1.TabIndex = 14
+        '
         'Form_Busqueda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(426, 445)
+        Me.ClientSize = New System.Drawing.Size(653, 445)
+        Me.Controls.Add(Me.CheckedListBox1)
+        Me.Controls.Add(Me.txtCantidadEncontrados)
+        Me.Controls.Add(Me.txtCantidadTotal)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.btnModificacion)
         Me.Controls.Add(Me.btnAlta)
@@ -175,4 +218,8 @@ Partial Class Form_Busqueda
     Friend WithEvents btnAlta As Button
     Friend WithEvents btnModificacion As Button
     Friend WithEvents btnCerrar As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtCantidadTotal As TextBox
+    Friend WithEvents txtCantidadEncontrados As TextBox
+    Friend WithEvents CheckedListBox1 As CheckedListBox
 End Class
