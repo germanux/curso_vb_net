@@ -28,7 +28,7 @@ Public Class Form_Alta
             Me.Close()
             MessageBox.Show("Empleado creado: " & nuevoEmpleado.ToString())
         Catch ex As Exception
-            MessageBox.Show("Error al guardar")
+            MessageBox.Show("Error al guardar " & ex.Message)
         End Try
     End Sub
     Private Sub texto_TextChanged(sender As Object, e As EventArgs) _

@@ -61,7 +61,16 @@ Namespace Modelo
         End Sub
 
         Public Sub Crear(nuevoEmpleado As Empleado) Implements IEmpleadosCRUD.Crear
-            Throw New NotImplementedException()
+
+            Dim nuevoRegistro As DataRow = tablaEmpleados.NewRow()
+            ' nuevoRegistro(0) ES EL ID
+            'nuevoRegistro(0) = 0
+            nuevoRegistro(1) = nuevoEmpleado.nombre
+            nuevoRegistro(2) = nuevoEmpleado.apellidos
+            nuevoRegistro(3) = nuevoEmpleado.genero
+            nuevoRegistro(4) = nuevoEmpleado.categoria
+            nuevoRegistro(5) = nuevoEmpleado.retribucionFija
+            tablaEmpleados.Rows.Add(nuevoRegistro)
         End Sub
 
         Public Sub Eliminar(empleados As List(Of Empleado)) Implements IEmpleadosCRUD.Eliminar
@@ -86,7 +95,7 @@ Namespace Modelo
         Function TodosEmpleados() As List(Of Empleado)
             TodosEmpleados = New List(Of Empleado)
             Dim lectorTabla As DataTableReader = tablaEmpleados.CreateDataReader()
-            tablaEmpleados.ro
+
             While lectorTabla.Read()
                 Dim nuevoEmpleado As New Empleado()
                 nuevoEmpleado.nombre = CType(lectorTabla("nombre"), String)
