@@ -38,7 +38,22 @@ Namespace Modelo
             conexionDB.Open()
             Return comando
         End Function
-
+        Public Function SqlWhereNombreApellidos(nombre As String, apellidos As String) As String
+            Dim consultaSQL = ""
+            If nombre <> "" Or apellidos <> "" Then
+                consultaSQL = consultaSQL + " WHERE "
+                If nombre <> "" Then
+                    consultaSQL = consultaSQL + " nombre Like '%' + @nombre +'%' "
+                End If
+                If nombre <> "" And apellidos <> "" Then
+                    consultaSQL = consultaSQL + " AND "
+                End If
+                If apellidos <> "" Then
+                    consultaSQL = consultaSQL + " apellidos LIKE '%' + @apellidos +'%' "
+                End If
+            End If
+            Return consultaSQL
+        End Function
     End Module
 
 End Namespace
