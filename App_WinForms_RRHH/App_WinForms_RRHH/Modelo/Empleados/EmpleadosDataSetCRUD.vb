@@ -45,6 +45,7 @@ Namespace Modelo
         End Sub
 
         Public Sub Grabar(persistenciaEmpleados As IPersistenciaEmpleados) Implements IEmpleadosCRUD.Grabar
+
             persistenciaEmpleados.Exportar(BuscarEmpleados("", "").ToArray())
             avisarEnModicacion(True)
         End Sub
@@ -74,11 +75,14 @@ Namespace Modelo
         End Sub
 
         Public Sub Eliminar(empleados As List(Of Empleado)) Implements IEmpleadosCRUD.Eliminar
-            Throw New NotImplementedException()
+            For Each empleado In empleados
+                Eliminar(empleado)
+            Next
+            avisarEnModicacion(True)
         End Sub
 
         Public Sub Eliminar(empleado As Empleado) Implements IEmpleadosCRUD.Eliminar
-            Throw New NotImplementedException()
+            tablaEmpleados.Rows.Remove(FiltroEmpeladosRow(empleado.nombre, empleado.apellidos))
         End Sub
 
         Public Sub EstablecerAvisarEnModificacion(funcionDelegada As TipoDelAvisarEnModificacion) Implements IEmpleadosCRUD.EstablecerAvisarEnModificacion
@@ -123,6 +127,18 @@ Namespace Modelo
 
                 FiltroEmpleados.Add(nuevoEmpleado)
             Next
+        End Function
+        Function FiltroEmpeladosRow(nombre As String, apellidos As String) As DataRow
+            If nombre = "" Or apellidos = "" Then
+                Throw New ArgumentException("Nombre y apellidos tienen que tener valores")
+            End If
+            Dim vistaFiltrada As DataView = New DataView(tablaEmpleados)
+            vistaFiltrada.RowFilter = "nombre = '" & nombre & "' AND apellidos = '" & apellidos & "'"
+            For Each filaRegistro As DataRowView In vistaFiltrada
+                Return filaRegistro.Row
+            Next
+            Throw New Exception("No se ha encontrado ningún registro")
+            Return Nothing ' Nunca debería pasar por aquí
         End Function
     End Class
 End Namespace
