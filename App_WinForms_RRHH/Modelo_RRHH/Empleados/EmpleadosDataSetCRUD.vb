@@ -53,7 +53,7 @@ Namespace Modelo
 
         Public ReadOnly Property Cantidad As Integer Implements IEmpleadosCRUD.Cantidad
             Get
-                Return 10
+                Return tablaEmpleados.Rows.Count
             End Get
         End Property
 

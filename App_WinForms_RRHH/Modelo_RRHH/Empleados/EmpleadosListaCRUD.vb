@@ -1,4 +1,6 @@
-﻿Namespace Modelo
+﻿Imports System.Linq
+
+Namespace Modelo
 
     ' CRUD: Create, Read, Update, Delete
     ' Crear, Leer, Actualizar, Eliminar
@@ -38,7 +40,21 @@
         Function BuscarEmpleados(nombre As String, apellido As String) As List(Of Empleado) Implements IEmpleadosCRUD.BuscarEmpleados
             nombre = nombre.ToUpper()
             apellido = apellido.ToUpper()
-            BuscarEmpleados = New List(Of Empleado)()
+
+            Dim consultaLINQ = From empleado In listaEmpleados.ToArray()
+                               Where empleado.nombre.ToUpper().Contains(nombre) And
+                                   empleado.apellidos.ToUpper().Contains(apellido)
+                               Order By empleado.nombre + " " + empleado.apellidos
+                               Take 4
+                               Select empleado
+
+            BuscarEmpleados = consultaLINQ.ToList()
+        End Function
+        Function BuscarEmpleadosConFor(nombre As String, apellido As String) As List(Of Empleado)
+
+            nombre = nombre.ToUpper()
+            apellido = apellido.ToUpper()
+            BuscarEmpleadosConFor = New List(Of Empleado)()
 
             For index = 0 To listaEmpleados.Count - 1
                 Dim encontradoNombre As Boolean = False
@@ -52,7 +68,7 @@
                     encontradoApellido = True
                 End If
                 If encontradoApellido And encontradoNombre Then
-                    BuscarEmpleados.Add(listaEmpleados(index))
+                    BuscarEmpleadosConFor.Add(listaEmpleados(index))
                 End If
             Next
         End Function

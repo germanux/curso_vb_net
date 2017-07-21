@@ -21,6 +21,7 @@ Public Class Form_Busqueda
             lstListaEmpleados.Items.Add(empleado.nombre & " " & empleado.apellidos)
         Next
         txtCantidadEncontrados.Text = lstListaEmpleados.Items.Count.ToString()
+        txtCantidadTotal.Text = CType(Me.MdiParent, MDI_Principal).empleadosCRUD.Cantidad
     End Sub
     Private Sub btnAlta_Click(sender As Object, e As EventArgs) Handles btnAlta.Click
         Dim mdiPrincipal As MDI_Principal

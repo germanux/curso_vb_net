@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form_Busqueda
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form_Busqueda
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lstListaEmpleados = New System.Windows.Forms.ListBox()
         Me.cmbNombre = New System.Windows.Forms.ComboBox()
@@ -36,7 +36,6 @@ Partial Class Form_Busqueda
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtCantidadTotal = New System.Windows.Forms.TextBox()
         Me.txtCantidadEncontrados = New System.Windows.Forms.TextBox()
-        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
         Me.SuspendLayout()
         '
         'lstListaEmpleados
@@ -168,22 +167,11 @@ Partial Class Form_Busqueda
         Me.txtCantidadEncontrados.Size = New System.Drawing.Size(100, 26)
         Me.txtCantidadEncontrados.TabIndex = 13
         '
-        'CheckedListBox1
-        '
-        Me.CheckedListBox1.Enabled = False
-        Me.CheckedListBox1.FormattingEnabled = True
-        Me.CheckedListBox1.Items.AddRange(New Object() {"aaaaa", "b", "cccc", "dddd"})
-        Me.CheckedListBox1.Location = New System.Drawing.Point(443, 89)
-        Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(185, 193)
-        Me.CheckedListBox1.TabIndex = 14
-        '
         'Form_Busqueda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(653, 445)
-        Me.Controls.Add(Me.CheckedListBox1)
+        Me.ClientSize = New System.Drawing.Size(422, 445)
         Me.Controls.Add(Me.txtCantidadEncontrados)
         Me.Controls.Add(Me.txtCantidadTotal)
         Me.Controls.Add(Me.Label5)
@@ -221,5 +209,4 @@ Partial Class Form_Busqueda
     Friend WithEvents Label5 As Label
     Friend WithEvents txtCantidadTotal As TextBox
     Friend WithEvents txtCantidadEncontrados As TextBox
-    Friend WithEvents CheckedListBox1 As CheckedListBox
 End Class
