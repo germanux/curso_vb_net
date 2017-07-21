@@ -1,5 +1,5 @@
 ﻿Namespace Modelo
-    Class EmpleadosFichero
+    Public Class EmpleadosFichero
         Inherits EmpleadosBaseImportador
 
         Public Overrides Function Importar(ByRef arrayEmpleados() As Empleado) As Boolean

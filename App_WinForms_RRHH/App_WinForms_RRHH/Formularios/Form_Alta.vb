@@ -1,4 +1,4 @@
-﻿Imports App_WinForms_RRHH.Modelo
+﻿Imports Modelo_RRHH.Modelo
 
 Public Class Form_Alta
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click

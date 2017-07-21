@@ -1,5 +1,5 @@
 ﻿Imports System.Windows.Forms
-Imports App_WinForms_RRHH.Modelo
+Imports Modelo_RRHH.Modelo
 
 Public Class MDI_Principal
 
@@ -92,6 +92,10 @@ Public Class MDI_Principal
 
         Me.ContextMenuStrip = ContextMenuStrip1
         EmpleadosToolStripMenuItem.Enabled = False
+        Modelo_RRHH.Modelo.MessageBox.MostrarMensaje = AddressOf ShowMessage
+    End Sub
+    Sub ShowMessage(mensaje As String)
+        System.Windows.Forms.MessageBox.Show(mensaje)
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked

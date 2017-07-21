@@ -1,4 +1,4 @@
-﻿Imports App_WinForms_RRHH.Modelo
+﻿Imports Modelo_RRHH.Modelo
 
 Public Class Form_Modificacion
     Private _empleado, _empleadoModif As Empleado

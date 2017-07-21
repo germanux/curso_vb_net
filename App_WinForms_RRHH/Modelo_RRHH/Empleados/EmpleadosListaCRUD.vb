@@ -2,7 +2,7 @@
 
     ' CRUD: Create, Read, Update, Delete
     ' Crear, Leer, Actualizar, Eliminar
-    Class EmpleadosListaCRUD
+    Public Class EmpleadosListaCRUD
         Implements IEmpleadosCRUD
 
         Private listaEmpleados As List(Of Empleado)
