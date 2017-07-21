@@ -7,6 +7,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "App_WinForms_RRHH", "App_Wi
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Modelo_RRHH", "Modelo_RRHH\Modelo_RRHH.vbproj", "{90A93FC2-8CCA-4D31-B123-D444D84ABD64}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "App_WebASP_RRHH", "App_WebASP_RRHH\App_WebASP_RRHH.vbproj", "{D903DF79-870E-4E86-9A68-3A5D2162A8A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{90A93FC2-8CCA-4D31-B123-D444D84ABD64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90A93FC2-8CCA-4D31-B123-D444D84ABD64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90A93FC2-8CCA-4D31-B123-D444D84ABD64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D903DF79-870E-4E86-9A68-3A5D2162A8A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D903DF79-870E-4E86-9A68-3A5D2162A8A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D903DF79-870E-4E86-9A68-3A5D2162A8A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D903DF79-870E-4E86-9A68-3A5D2162A8A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

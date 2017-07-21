@@ -45,7 +45,6 @@ Namespace Modelo
                                Where empleado.nombre.ToUpper().Contains(nombre) And
                                    empleado.apellidos.ToUpper().Contains(apellido)
                                Order By empleado.nombre + " " + empleado.apellidos
-                               Take 4
                                Select empleado
 
             BuscarEmpleados = consultaLINQ.ToList()
